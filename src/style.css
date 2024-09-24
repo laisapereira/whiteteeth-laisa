@@ -1,0 +1,13 @@
+:root {
+  --main-brown-licore: #1e000e;
+  --main-yellow-saffron: #f7c325;
+  --bg-prouct: #fdf3d3;
+
+  --main-font-style: ;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
