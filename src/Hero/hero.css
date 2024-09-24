@@ -5,35 +5,40 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  max-width:100%;
+  max-width: 100%;
   display: flex;
   align-items: center;
   color: var(--bg-product);
   font-family: var(--main-font-style);
   font-size: 1.5rem;
-  padding: 6rem 0;
+
+  height: 50vh;
 }
 
 .banner div {
-  width: 70%;
-  display:flex;
-  flex-direction:column;  
-
-  
+  width: 50%;
+  max-width: 100%;
+  padding: 0.8vh 2vw;
+  display: flex;
+  flex-direction: column;
+  margin-left: auto;
 }
 
 .banner div span {
   font-style: italic;
-
 }
 
 .banner h2 {
-  width: 65%;
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  width: 75%;
+  max-width: 75%;
 }
 
 .banner div p {
-  font-size: 1rem;
+  font-size: clamp(1rem, 1.6vw, 1.5rem);
+  font-family: var(--main-condensed-font);
   font-weight: 400;
-  width: 87%;
-
+  padding-right:2vw;
 }
