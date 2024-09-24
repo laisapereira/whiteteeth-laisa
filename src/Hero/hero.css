@@ -1,6 +1,6 @@
 @import url("../global.css");
 
-.banner {
+.section-banner {
   background-image: url("../assets/images/img_hero.svg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -15,8 +15,8 @@
   height: 50vh;
 }
 
-.banner div {
-  width: 50%;
+.section-banner div {
+  width: 48%;
   max-width: 100%;
   padding: 0.8vh 2vw;
   display: flex;
@@ -24,21 +24,21 @@
   margin-left: auto;
 }
 
-.banner div span {
+.section-banner div span {
   font-style: italic;
 }
 
-.banner h2 {
-  font-size: clamp(2rem, 3vw, 3rem);
+.section-banner h2 {
+  font-size: var(--h2-font-size);
   font-weight: 700;
   margin-bottom: 1rem;
   width: 75%;
   max-width: 75%;
 }
 
-.banner div p {
+.section-banner div p {
   font-size: clamp(1rem, 1.6vw, 1.5rem);
   font-family: var(--main-condensed-font);
   font-weight: 400;
-  padding-right:2vw;
+  padding-right:1.5vw;
 }

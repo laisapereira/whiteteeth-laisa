@@ -1,0 +1,65 @@
+@import url("../global.css");
+
+.section-filter {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--main-font-style);
+  padding: 3rem 0;
+  width:100%;
+  max-width: 100%;
+}
+
+.section-filter h2 {
+  color: var(--main-yellow-saffron);
+  text-align: center;
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+}
+
+.filter-choices {
+  gap: 1rem;
+  font-size: 1.2rem;
+
+  width: 100%;
+  max-width: 100%;
+  img {
+    width: auto;
+    height: auto;
+    max-width: 30%;
+  }
+}
+
+.buttons-filter-choices {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  p{
+    font-weight: 700;
+  }
+
+  color: var(--main-brown-licore);
+  font-size:clamp(0.6rem, 1.5vw, 0.8rem);
+
+  width: 40%;
+  max-width: 50%;
+}
+
+.buttons-filter-choices button {
+  background-color: transparent;
+  border: 2px solid var(--main-brown-licore);
+  width: fit-content;
+  
+
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+
+
+}
+
+.buttons-filter-choices button:hover{
+  background-color: var(--main-yellow-saffron);
+  cursor: pointer;
+}
+
+
