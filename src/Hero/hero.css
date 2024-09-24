@@ -1,0 +1,39 @@
+@import url("../global.css");
+
+.banner {
+  background-image: url("../assets/images/img_hero.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  max-width:100%;
+  display: flex;
+  align-items: center;
+  color: var(--bg-product);
+  font-family: var(--main-font-style);
+  font-size: 1.5rem;
+  padding: 6rem 0;
+}
+
+.banner div {
+  width: 70%;
+  display:flex;
+  flex-direction:column;  
+
+  
+}
+
+.banner div span {
+  font-style: italic;
+
+}
+
+.banner h2 {
+  width: 65%;
+}
+
+.banner div p {
+  font-size: 1rem;
+  font-weight: 400;
+  width: 87%;
+
+}

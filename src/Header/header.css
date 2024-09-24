@@ -19,6 +19,10 @@
   color: var(--bg-product);
 }
 
+.ad-register a:hover {
+  color: var(--main-yellow-saffron);
+}
+
 header {
   display: flex;
   justify-content: space-between;
@@ -26,7 +30,8 @@ header {
   background-color: var(--main-yellow-saffron);
   padding: 1rem 1.8rem;
   max-width: 100%;
-  height: 96px;
+  height: 5.5rem;
+  margin-bottom: 0rem;
  
 }
 
