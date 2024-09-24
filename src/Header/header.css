@@ -1,0 +1,65 @@
+@import url("../global.css");
+
+.ad-register {
+  width: 100%;
+  background-color: var(--main-brown-licore);
+  height: 2rem;;
+  font-family: var(--main-font-style);
+}
+
+.ad-register h4 {
+  color: var(--bg-product);
+  text-align: center;
+  font-weight: 300;
+  padding: 0.4rem;
+  font-size: 1rem;
+}
+
+.ad-register h4 a {
+  color: var(--bg-product);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-yellow-saffron);
+  padding: 1rem 1.8rem;
+  max-width: 100%;
+  height: 96px;
+ 
+}
+
+nav {
+  display:flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--main-font-style);
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.header-user {
+  display:flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-user button {
+  color: var(--bg-product);
+  background-color: var(--main-brown-licore);
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+}
+
+.header-user button:hover {
+  background-color: var(--main-hover);
+  cursor: pointer;
+
+}
+
+.header-user img:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}

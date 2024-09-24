@@ -1,9 +1,12 @@
 :root {
   --main-brown-licore: #1e000e;
   --main-yellow-saffron: #f7c325;
-  --bg-prouct: #fdf3d3;
+  --bg-product: #fdf3d3;
+  --main-hover: #290214;
 
-  --main-font-style: ;
+  --main-font-style: "Roboto", sans-serif;
+
+  // padrao para responsividade tbm
 }
 
 * {
