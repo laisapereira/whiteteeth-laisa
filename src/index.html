@@ -6,7 +6,6 @@
   <link rel="stylesheet" href="./Header/header.css">
   <link rel="stylesheet" href="./Hero/hero.css">
   <link rel="stylesheet" href="./Filter/filter.css">
-  <link rel="stylesheet" href="./Product/product.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -51,12 +50,12 @@
           <div class="buttons-filter-choices">
             <img src="./assets/icons/ic_filter.svg" alt="filter-icon">
             <p>Filtros </p>
-            <button value="Todos">Todos </button>
-            <button value ="Pasta de dente" onclick="filterCards()">Pasta de dente</button>
-            <button value ="Escova de dente" onclick="filterCards()">Escova de dente</button>
-            <button value ="Raspador de língua"  onclick="filterCards()">Raspador de língua</button>
-            <button value = "Clareamento" onclick="filterCards()">Clareamento</button>
-            <button value = "Aparelhos ortodônticos"  onclick="filterCards()">Aparelhos ortodônticos</button>
+            <button class="filter-option" value="Todos">Todos </button>
+            <button class="filter-option" value ="Pasta de dente" onclick="filterCards()">Pasta de dente</button>
+            <button class="filter-option" value ="Escova de dente" onclick="filterCards()">Escova de dente</button>
+            <button class="filter-option" value ="Raspador de língua"  onclick="filterCards()">Raspador de língua</button>
+            <button class="filter-option" value = "Clareamento" onclick="filterCards()">Clareamento</button>
+            <button class="filter-option" value = "Aparelhos ortodônticos"  onclick="filterCards()">Aparelhos ortodônticos</button>
           </div>
 
           <img src="./assets/icons/ic_chat.svg" alt="chat-icon">
@@ -65,17 +64,9 @@
 
  
         <div class="section-type-products">
-          <h3>Pasta de Dente</h3>
+          <h3 class="section-title"></h3>
           <div></div>
-         <section class="tooth-paste-products">
-         </section>
-        </div>
-
-
-        <div class="section-type-products">
-          <h3>Escova de Dente</h3>
-          <div></div>
-         <section class="tooth-brush-products">
+         <section class="tooth-products">
          </section>
         </div>
 

@@ -1,3 +1,40 @@
 @import url("../global.css");
 
 
+.section-products {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--main-font-style);
+
+  h3 {
+    padding: 1rem 1.8rem;
+    font-size: clamp(1.5rem, 2vw, 1.5rem);
+    color: var(--main-brown-licore);
+    font-weight: 500;
+  }
+}
+
+.cards-products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-product);
+
+}
+
+.product-card button {
+  background-color: var(--main-yellow-saffron);
+  color: var(--main-brown-licore);
+  font-weight: 700;
+  padding: 0.8rem 2rem;
+  border-radius: 8px;
+
+  border: none;
+}
