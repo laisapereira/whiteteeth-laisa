@@ -76,72 +76,85 @@ const toothProducts = [
 const filterButtons = document.querySelectorAll(".section-filter button")
 const cards = document.querySelectorAll('.product-card')
 
-// rever isso aqui
-const productTypes = toothProducts.map(({type}) => type)
-const uniqueTypes = [...new Set(productTypes)]
 
 filterButtons.forEach(button => {
   button.addEventListener('click', filterCards)
 })
 
 function filterCards(e) {
- const typeButton = e.target.value
+ const typeButton = e.target?.value
 
- console.log(typeButton)
-
- const cardsTitles = document.querySelectorAll('.section-type-products h4')
- cardsTitles.forEach(
-  cardTitle => {
-  
-
-    const valueCardTitle = cardTitle.innerText 
-    const card = cardTitle.parentElement
-
-    if (!uniqueTypes.includes(typeButton) && typeButton !== 'Todos') {
-      renderingErrorSection(typeButton) 
-      console.log("deu b.o" + valueCardTitle)
+ matchTypeCards = toothProducts.filter(product => product.type === typeButton)
  
-    } else {
-      valueCardTitle === typeButton || typeButton === 'Todos' 
-      ? card?.classList.remove('hide-component') 
-      : card?.classList.add('hide-component') 
-      console.log("deu bom" + valueCardTitle)
+ renderFilteredCards(matchTypeCards)
 
-    }
- 
-    document.querySelector('.section-title').textContent = `${typeButton}`
-        
-  },
-
-)
+if (typeButton === 'Todos') { 
+ renderFilteredCards(toothProducts)
 }
 
-function renderingErrorSection(typeButton) {
-  document.querySelector('.section-type-products').innerHTML = `
+if (matchTypeCards.length > 0) {
+  renderFilteredCards(matchTypeCards);
+} else {
+  renderingErrorSection(typeButton, matchTypeCards);   
+}
+
+ }
+
+function renderingErrorSection(typeButton, matchTypeCards) {
+
+  let errSection = document.createElement('div') 
+  console.log(matchTypeCards.length)
+
+ if (errSection) { 
+  errSection.querySelector('h3').textContent = typeButton
+
+  console.log( 'ja tinha')
+ 
+}  else  {
+   if (!errSection) {
+    errSection.innerHTML = ` 
     <div class="error-section">
       <h3>${typeButton}</h3>
       <h2>Ops! Parece que não temos esse produto por aqui</h2>
-    </div>
-  `
+    </div> `
+  
+    document.querySelector('.section-type-products').appendChild(errSection)
+  
+    console.log(errSection)
+    console.log('adicionou')
+    
+  } else if (matchTypeCards.length > 0) {
+    errSection.remove()
+    console.log('removeu')
+  
+  }
 }
 
 
-document.querySelector('.tooth-products').innerHTML = toothProducts.map(product => {
-  return `
-      
-        <div class="product-card">
-          <img src="${product.img_url}" alt="${product.alt}" />
-          <h4>${product.name}</h4>
-          <p>${product.price}</p>
-          <img src="${product.fake_rating}" alt="fake rating" />
-          <button>Adicionar ao carrinho</button>
-        </div>
-  `
- }).join('')
+  
+} 
+
+   
+
+function renderFilteredCards(matchTypeCards) {
+  document.querySelector('.tooth-products').innerHTML = matchTypeCards.map(product => {
+    return `
+          <div class="product-card">
+            <img src="${product.img_url}" alt="${product.alt}" />
+            <h4>${product.name}</h4>
+            <p>${product.price}</p>
+            <img src="${product.fake_rating}" alt="fake rating" />
+            <button>Adicionar ao carrinho</button>
+          </div>
+    `
+   }).join('')
+
+}
 
 
 
 
- 
+
+
  
 
