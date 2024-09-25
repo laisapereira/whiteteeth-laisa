@@ -100,35 +100,31 @@ if (matchTypeCards.length > 0) {
 
  }
 
-function renderingErrorSection(typeButton, matchTypeCards) {
+ function renderingErrorSection(typeButton, matchTypeCards) {
 
-  let errSection = document.createElement('div') 
-  console.log(matchTypeCards.length)
+  const existingDivError = document.querySelector('.error-section');
 
- if (errSection) { 
-  errSection.querySelector('h3').textContent = typeButton
+  if (matchTypeCards.length === 0) {
+    existingDivError.textContent = 'oi';
 
-  console.log( 'ja tinha')
- 
-}  else  {
-   if (!errSection) {
-    errSection.innerHTML = ` 
-    <div class="error-section">
+    console.log('apagou')
+  }
+
+  if (existingDivError) {
+    
+    existingDivError.querySelector('h3').textContent = typeButton;
+  } else {
+    
+    const errorSection = document.createElement('div');
+    errorSection.classList.add('error-section');
+    errorSection.innerHTML = `
       <h3>${typeButton}</h3>
       <h2>Ops! Parece que não temos esse produto por aqui</h2>
-    </div> `
-  
-    document.querySelector('.section-type-products').appendChild(errSection)
-  
-    console.log(errSection)
-    console.log('adicionou')
-    
-  } else if (matchTypeCards.length > 0) {
-    errSection.remove()
-    console.log('removeu')
-  
+    `;
+    document.querySelector('.section-type-products').appendChild(errorSection);
+    existingDivError = errorSection; 
   }
-}
+
 
 
   
