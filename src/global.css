@@ -28,13 +28,4 @@
 }
 
 
-.hide-component {
-  display:none;
-}
-
-.show-component {
-  display:flex;
-  flex-direction: column;
-}
-
 

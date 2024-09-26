@@ -39,13 +39,11 @@
   }
 
   color: var(--main-brown-licore);
-  font-size: clamp(0.6rem, 1.5vw, 0.8rem);
-
-  width: 40%;
-  max-width: 50%;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+  max-width: 80%; 
 }
 
-.buttons-filter-choices button {
+.filter-option {
   background-color: transparent;
   border: 2px solid var(--main-brown-licore);
   width: fit-content;
@@ -54,10 +52,10 @@
   padding: 0.5rem 1rem;
 }
 
-.buttons-filter-choices button:hover {
+ .filter-option:hover {
   background-color: var(--main-yellow-saffron);
   cursor: pointer;
-}
+} 
 
 
 .section-line {
@@ -71,4 +69,9 @@
 
 .section-title {
   color: red;
+}
+
+.filter-option:focus{
+  background-color: var(--main-yellow-saffron);
+  cursor: pointer;
 }

@@ -1,7 +1,7 @@
 @import url("../global.css");
 
 
-.section-products {
+.section-type-products {
   display: flex;
   flex-direction: column;
   font-family: var(--main-font-style);

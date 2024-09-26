@@ -1,4 +1,3 @@
-
 const toothProducts = [
   {
     name: "Pasta de dente",
@@ -100,57 +99,63 @@ if (matchTypeCards.length > 0) {
 
  }
 
- function renderingErrorSection(typeButton, matchTypeCards) {
+function renderingErrorSection(typeButton) {
 
-  const existingDivError = document.querySelector('.error-section');
+  var divError = document.querySelector('.error-section')
 
-  if (matchTypeCards.length === 0) {
-    existingDivError.textContent = 'oi';
-
-    console.log('apagou')
-  }
-
-  if (existingDivError) {
+ if (divError) { 
+  divError.querySelector('h3').textContent = typeButton
+}  else  {
+   var errorSection = document.createElement('div')
+    errorSection.innerHTML = ` 
     
-    existingDivError.querySelector('h3').textContent = typeButton;
-  } else {
-    
-    const errorSection = document.createElement('div');
-    errorSection.classList.add('error-section');
-    errorSection.innerHTML = `
+    <div class="error-section">
       <h3>${typeButton}</h3>
       <h2>Ops! Parece que não temos esse produto por aqui</h2>
-    `;
-    document.querySelector('.section-type-products').appendChild(errorSection);
-    existingDivError = errorSection; 
-  }
-
-
-
+    </div> `
   
-} 
-
-   
+    document.querySelector('.section-type-products').appendChild(errorSection)
+  
+    console.log(errorSection)
+    
+  } 
+}
 
 function renderFilteredCards(matchTypeCards) {
-  document.querySelector('.tooth-products').innerHTML = matchTypeCards.map(product => {
+  const groupProducts = matchTypeCards.reduce((acc, product) => {
+    if (!acc[product.type]) {
+      acc[product.type] = [];
+    }
+    acc[product.type].push(product);
+    return acc;
+  }, {});
+
+
+  document.querySelector('.section-type-products').innerHTML = Object.keys(groupProducts).map(type => {
     return `
-          <div class="product-card">
-            <img src="${product.img_url}" alt="${product.alt}" />
-            <h4>${product.name}</h4>
-            <p>${product.price}</p>
-            <img src="${product.fake_rating}" alt="fake rating" />
-            <button>Adicionar ao carrinho</button>
-          </div>
-    `
-   }).join('')
+      <section class="container-products">
+        <h3>${type}</h3>
+        <div class="section-line"></div>
+        <div class="tooth-products">
+          ${groupProducts[type].map(product => {
+            return `
+              <div class="product-card">
+                <img src="${product.img_url}" alt="${product.alt}" />
+                <h4>${product.name}</h4>
+                <p>${product.price}</p>
+                <img src="${product.fake_rating}" alt="fake rating" />
+                <button>Adicionar ao carrinho</button>
+              </div>
+            `;
+          }).join('')}
+        </div>
+      </section>
+    `;
+  }).join('');
 
 }
 
 
 
 
-
-
  
-
