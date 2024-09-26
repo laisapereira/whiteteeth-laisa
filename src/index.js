@@ -3,7 +3,7 @@ const toothProducts = [
     id: 1,
     name: "Hortelã",
     type: "Pasta de dente",
-    price: "R$ 70,90",
+    price: "70.90",
     img_url: "./assets/images/img_toothpaste.svg",
     label: "original",
     previous_price: "",
@@ -16,10 +16,10 @@ const toothProducts = [
     id: 2,
     name: "Morango",
     type: "Pasta de dente",
-    price: "R$ 50,90",
+    price: "50.90",
     img_url: "./assets/images/img_toothpaste.svg",
     label: "discount",
-    previous_price: "R$ 70,90",
+    previous_price: "70,90",
     percent: "30%",
     alt: "./assets/images/img_toothpaste.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
@@ -29,10 +29,10 @@ const toothProducts = [
     id: 3,
     name: "Uva",
     type: "Pasta de dente",
-    price: "R$ 50,90",
+    price: "50.90",
     img_url: "./assets/images/img_toothpaste.svg",
     label: "discount",
-    previous_price: "R$ 70,90",
+    previous_price: "70,90",
     percent: "30%",
     alt: "./assets/images/img_toothpaste.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
@@ -42,10 +42,10 @@ const toothProducts = [
     id: 4,
     name: "Café",
     type: "Pasta de dente",
-    price: "R$ 50,90",
+    price: "50.90",
     img_url: "./assets/images/img_toothpaste.svg",
     label: "discount",
-    previous_price: "R$ 70,90",
+    previous_price: "70.90",
     percent: "30%",
     alt: "./assets/images/img_toothpaste.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
@@ -55,10 +55,10 @@ const toothProducts = [
     id: 5,
     name: "Bamboo",
     type: "Escova de dente",
-    price: "R$ 50,90",
+    price: "50.90",
     img_url: "./assets/images/img_tooth.svg",
     label: "discount",
-    previous_price: "R$ 70,90",
+    previous_price: "70.90",
     percent: "30%",
     alt: "./assets/images/img_tooth.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
@@ -68,10 +68,10 @@ const toothProducts = [
     id: 6,
     name: "Mogno",
     type: "Escova de dente",
-    price: "R$ 50,90",
+    price: "50.90",
     img_url: "./assets/images/img_tooth.svg",
     label: "discount",
-    previous_price: "R$ 70,90",
+    previous_price: "70.90",
     percent: "30%",
     alt: "./assets/images/img_tooth.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
@@ -80,10 +80,10 @@ const toothProducts = [
     id: 7,
     name: "Carvalho",
     type: "Escova de dente",
-    price: "R$ 50,90",
+    price: "50.90",
     img_url: "./assets/images/img_tooth.svg",
     label: "discount",
-    previous_price: "R$ 70,90",
+    previous_price: "70.90",
     percent: "30%",
     alt: "./assets/images/img_tooth.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
@@ -93,10 +93,10 @@ const toothProducts = [
     id: 8,
     name: "Fio dental",
     type: "Outros",
-    price: "R$ 50,90",
+    price: "50.90",
     img_url: "./assets/images/img_dentalfloss.svg",
     label: "discount",
-    previous_price: "R$ 70,90",
+    previous_price: "70.90",
     percent: "30%",
     alt: "./assets/images/img_dentalfloss.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
@@ -107,10 +107,10 @@ const toothProducts = [
     id: 9,
     name: "Fio dental",
     type: "Outros",
-    price: "R$ 50,90",
+    price: "50.90",
     img_url: "./assets/images/img_dentalfloss.svg",
     label: "discount",
-    previous_price: "R$ 70,90",
+    previous_price: "70.90",
     percent: "30%",
     alt: "./assets/images/img_dentalfloss.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
@@ -197,12 +197,6 @@ function renderFilteredCards(matchTypeCards) {
               <li>
                 <p class="product-price">${product.price}</p>
               </li> 
-
-              <div class="quantity">
-                  <span class="minus"><</span>
-                  <span>teste</span>
-                  <span class="plus">></span>
-              </div>
               <button onClick="addToCart(${product.id})">Adicionar ao carrinho</button>
             </ul>`
           : `<ul class="product-card">
@@ -214,11 +208,6 @@ function renderFilteredCards(matchTypeCards) {
               <li>
                 <p class="product-price">${product.price}</p>
               </li> 
-              <div class="quantity">
-                  <span class="minus"><</span>
-                  <span>teste</span>
-                  <span class="plus">></span>
-              </div>
               <button onClick="addToCart(${product.id})">Adicionar ao carrinho</button>
             </ul>`
         }   
@@ -235,9 +224,6 @@ function renderFilteredCards(matchTypeCards) {
 // Carrinho de compras
 
 // array vazio para armazenar os produtos do carrinho
-// logica do addToCart() ==> pessoa clicou, identificou o id do objeto clicado, adicionou o objeto ao array de produtos do carrinho
-// logica do displayCart() ==> se o carrinho estiver vazio, exibir mensagem de carrinho vazio, se não, exibir os produtos do carrinho
-
 
 // logica do removeFromCart() ==> pessoa clicou, identificou o id do objeto clicado, removeu o objeto do array de produtos do carrinho
 var productsCart = []
@@ -252,25 +238,23 @@ function addToCart (productId) {
     type,
     price,
     previous_price,
-    id: productId,
     quantity: 1
   }
-
-  let positionCardArray = productsCart.findIndex((value) => value.productId == productId);
+  let positionItemInCart = productsCart.findIndex((value) => value.productId == productId);
   if(productsCart.length <= 0){
     productsCart.push({
           ...summarizedProduct,
           id: productId,
           quantity: 1
       });
-  }else if(positionCardArray < 0){
+  }else if(positionItemInCart < 0){
     productsCart.push({
           ...summarizedProduct,
           id: productId,
           quantity: 1
       });
   }else{
-    productsCart[positionCardArray].quantity = productsCart[positionCardArray].quantity + 1;
+    productsCart[positionItemInCart].quantity = productsCart[positionItemInCart].quantity + 1;
   }
   displayCart(productsCart);
   addCartToMemory();
@@ -279,34 +263,99 @@ function addToCart (productId) {
 }
 
 
+
+
+const changeQuantityCart = (productId, typeOfCount) => {
+  let positionItemInCart = productsCart.findIndex((value) => value.productId == productId);
+  if(positionItemInCart >= 0){
+      let info = productsCart[positionItemInCart];
+      console.log(info)
+      switch (typeOfCount) {
+          case 'plus':
+              info.quantity = info.quantity + 1;
+              break;     
+          default:
+              let changeQuantity = info.quantity - 1;
+              if (changeQuantity > 0) {
+                  info.quantity = changeQuantity;
+              }else{
+                  productsCart.splice(positionItemInCart, 1);
+              }
+              break;
+      }
+  }
+  displayCart(productsCart);
+  addCartToMemory();
+}
+
+
 const addCartToMemory = () => {
   localStorage.setItem('productsCart', JSON.stringify(productsCart));
 }
 
 const getCartFromMemory = () => {
-
   if(localStorage.getItem('productsCart')) {
-    productsCart = JSON.parse(localStorage.getItem('cart'));
+    productsCart = JSON.parse(localStorage.getItem('productsCart'));
     displayCart(productsCart);
 }
 }
 
+
+let containerCart = document.getElementById('cart-item')
+
 function displayCart(summarizedProduct) {
-  let j = 0;
-  if(productsCart.length ==0) {
-    document.getElementById('cart-item').innerHTML = `<p>Seu carrinho está vazio :( </p>`
-  } else {
-    document.getElementById('cart-item').innerHTML = summarizedProduct.map((product) => {
-      return(
-        `<div class="cart-item">
-            <img src="${product.img_url}" alt="product" />
-            <div>
-              <h3>${product.name}</h3>
-              <h4>${product.price}</h4>` +
-              `<button onclick="removeFromCart(${product.id})">Remover</button> </div>`) 
-    }).join('')
+
+ containerCart.innerHTML = '';
+  let totalQuantity = 0;
+  if(summarizedProduct.length > 0){
+      summarizedProduct.forEach(item => {
+          totalQuantity = totalQuantity +  item.quantity;
+          let newItem = document.createElement('div');
+          newItem.classList.add('item');
+          console.log(item)
+          newItem.dataset.id = item.id;
+
+          let positionItemInCart = productsCart.findIndex((value) => value.id == item.id);
+          let info = productsCart[positionItemInCart];
+          containerCart.appendChild(newItem);
+
+          console.log(info.quantity)
+
+          newItem.innerHTML = `
+              <div>
+                <div class="image">
+                    <img src="${info.img_url}">
+                </div>
+                <div class="name">
+                  ${info.name}
+                </div>
+                <div class="totalPrice"> R$ ${Number(info.price * item.quantity)}</div>
+                <div class="quantity">
+                    <button class="minus"> - </button>
+                    <span>${item.quantity}</span>
+                    <button class="plus"> + </button>
+                </div>
+              </div>
+          `;
+      })
   }
+/*   iconCartSpan.innerText = totalQuantity; */
 }
+
+  containerCart.addEventListener('click', (event) => {
+  let positionClick = event.target;
+  if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
+      let productId = positionClick.parentElement.parentElement.dataset.id;
+      console.log(productId)
+      let typeOfCount = 'minus';
+      if(positionClick.classList.contains('plus')){
+          typeOfCount = 'plus';
+      }
+      changeQuantityCart(productId, typeOfCount);
+  } 
+
+  addCartToMemory()
+})
 
 
 
