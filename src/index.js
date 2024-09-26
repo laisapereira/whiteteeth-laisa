@@ -1,72 +1,109 @@
 const toothProducts = [
   {
-    name: "Pasta de dente",
+    name: "Hortelã",
     type: "Pasta de dente",
     price: "R$ 70,90",
     img_url: "./assets/images/img_toothpaste.svg",
+    label: "original",
+    previous_price: "",
+    percent: "",
     alt: "./assets/images/img_toothpaste.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
 
   },
   {
-    name: "Pasta de dente",
+    name: "Morango",
     type: "Pasta de dente",
-    price: "R$ 70,90",
+    price: "R$ 50,90",
     img_url: "./assets/images/img_toothpaste.svg",
+    label: "discount",
+    previous_price: "R$ 70,90",
+    percent: "30%",
     alt: "./assets/images/img_toothpaste.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
 
   },
   {
-    name: "Pasta de dente",
+    name: "Uva",
     type: "Pasta de dente",
-    price: "R$ 70,90",
+    price: "R$ 50,90",
     img_url: "./assets/images/img_toothpaste.svg",
+    label: "discount",
+    previous_price: "R$ 70,90",
+    percent: "30%",
     alt: "./assets/images/img_toothpaste.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
 
   },
   {
-    name: "Pasta de dente",
+    name: "Café",
     type: "Pasta de dente",
-    price: "R$ 70,90",
+    price: "R$ 50,90",
     img_url: "./assets/images/img_toothpaste.svg",
+    label: "discount",
+    previous_price: "R$ 70,90",
+    percent: "30%",
     alt: "./assets/images/img_toothpaste.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
 
   },
   {
-    name: "Escova de dente",
+    name: "Bamboo",
     type: "Escova de dente",
-    price: "R$ 70,90",
+    price: "R$ 50,90",
     img_url: "./assets/images/img_tooth.svg",
+    label: "discount",
+    previous_price: "R$ 70,90",
+    percent: "30%",
     alt: "./assets/images/img_tooth.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
 
   },
   {
-    name: "Escova de dente",
+    name: "Mogno",
     type: "Escova de dente",
-    price: "R$ 70,90",
+    price: "R$ 50,90",
     img_url: "./assets/images/img_tooth.svg",
+    label: "discount",
+    previous_price: "R$ 70,90",
+    percent: "30%",
     alt: "./assets/images/img_tooth.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
   },
   {
-    name: "Escova de dente",
+    name: "Carvalho",
     type: "Escova de dente",
-    price: "R$ 70,90",
+    price: "R$ 50,90",
     img_url: "./assets/images/img_tooth.svg",
+    label: "discount",
+    previous_price: "R$ 70,90",
+    percent: "30%",
     alt: "./assets/images/img_tooth.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
 
   },
   {
-    name: "Escova de dente",
-    type: "Escova de dente",
-    price: "R$ 70,90",
-    img_url: "./assets/images/img_tooth.svg",
-    alt: "./assets/images/img_tooth.svg",
+    name: "Fio dental",
+    type: "Outros",
+    price: "R$ 50,90",
+    img_url: "./assets/images/img_dentalfloss.svg",
+    label: "discount",
+    previous_price: "R$ 70,90",
+    percent: "30%",
+    alt: "./assets/images/img_dentalfloss.svg",
+    fake_rating: "./assets/icons/ic_rate.svg"
+
+  },
+
+  {
+    name: "Fio dental",
+    type: "Outros",
+    price: "R$ 50,90",
+    img_url: "./assets/images/img_dentalfloss.svg",
+    label: "discount",
+    previous_price: "R$ 70,90",
+    percent: "30%",
+    alt: "./assets/images/img_dentalfloss.svg",
     fake_rating: "./assets/icons/ic_rate.svg"
 
   },
@@ -139,22 +176,33 @@ function renderFilteredCards(matchTypeCards) {
         <div class="tooth-products">
           ${groupProducts[type].map(product => {
             return `
-              <div class="product-card">
-                <img src="${product.img_url}" alt="${product.alt}" />
-                <h4>${product.name}</h4>
-                <p>${product.price}</p>
-                <img src="${product.fake_rating}" alt="fake rating" />
-                <button>Adicionar ao carrinho</button>
-              </div>
-            `;
+            ${product.label === 'discount' 
+          ? `<div class="product-card">
+              <label>${product.percent} OFF</label>
+              <img class="product-image" src="${product.img_url}" alt="${product.alt}" />
+              <img class="product-rate"src="${product.fake_rating}" alt="fake rating" />
+              <h4>${product.name}</h4>
+              <label class="product-previous-price"><s>${product.previous_price}</s></label>
+              <p class="product-price">${product.price}</p> 
+              <button>Adicionar ao carrinho</button>
+            </div>`
+          : `<div class="product-card">
+              <img class="product-image" src="${product.img_url}" alt="${product.alt}" />
+              <img class="product-rate" src="${product.fake_rating}" alt="fake rating" />
+              <h4>${product.name}</h4>
+              <p class="product-price">${product.price}</p> 
+              <button>Adicionar ao carrinho</button>
+            </div>`
+        }   
+      `;
           }).join('')}
         </div>
       </section>
     `;
   }).join('');
 
-}
 
+}
 
 
 

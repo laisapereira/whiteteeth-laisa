@@ -1,7 +1,7 @@
 @import url("../global.css");
 
 
-.section-type-products {
+.container-products {
   display: flex;
   flex-direction: column;
   font-family: var(--main-font-style);
@@ -11,30 +11,68 @@
     font-size: clamp(1.5rem, 2vw, 1.5rem);
     color: var(--main-brown-licore);
     font-weight: 500;
+   
+  }
+
+  h4 {
+    padding-bottom: 3rem;
+    color: var(--main-brown-licore);
+    font-size: clamp(1.2rem, 2.3vw, 1.5rem);
   }
 }
 
-.cards-products {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  align-items: center;
-  justify-content: center;
-}
 
 .product-card {
   display: flex;
   flex-direction: column;
   background-color: var(--bg-product);
+  width: 20rem;
+
+
+  align-items: initial;
+  justify-content: space-between;
+
+  padding: 1.5rem
 
 }
 
 .product-card button {
   background-color: var(--main-yellow-saffron);
   color: var(--main-brown-licore);
-  font-weight: 700;
+  font-weight: bold;
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
   padding: 0.8rem 2rem;
   border-radius: 8px;
-
   border: none;
+
+  margin-top: 1rem;
+
+ 
+}
+
+
+.product-rate {
+  width: 9rem;
+  height: 1.5rem;
+}
+
+.product-image  {
+  padding-bottom: 1rem;
+  max-width: 100%;
+}
+
+
+
+.tooth-products {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 1rem 2.5rem;
+  gap: 2rem;
+ 
+
+}
+
+.product-price {
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--main-yellow-saffron);
 }
