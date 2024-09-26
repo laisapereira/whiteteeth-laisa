@@ -61,6 +61,25 @@ nav {
 }
 
 .header-user img:hover {
-  transform: scale(1.2);
+  
+  cursor: pointer;
+}
+
+#header-cart-user {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.8rem;
+  gap: 1.3rem;
+  color: var(--main-brown-licore);
+
+  
+  
+
+  background-color: transparent;
+}
+
+#header-cart-user:hover {
+  background-color: var(--bg-product);
+  transform: scale(1.1);
   cursor: pointer;
 }

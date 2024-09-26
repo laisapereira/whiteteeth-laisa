@@ -1,5 +1,6 @@
 const toothProducts = [
   {
+    id: 1,
     name: "Hortelã",
     type: "Pasta de dente",
     price: "R$ 70,90",
@@ -12,6 +13,7 @@ const toothProducts = [
 
   },
   {
+    id: 2,
     name: "Morango",
     type: "Pasta de dente",
     price: "R$ 50,90",
@@ -24,6 +26,7 @@ const toothProducts = [
 
   },
   {
+    id: 2,
     name: "Uva",
     type: "Pasta de dente",
     price: "R$ 50,90",
@@ -36,6 +39,7 @@ const toothProducts = [
 
   },
   {
+    id: 3,
     name: "Café",
     type: "Pasta de dente",
     price: "R$ 50,90",
@@ -48,6 +52,7 @@ const toothProducts = [
 
   },
   {
+    id: 4,
     name: "Bamboo",
     type: "Escova de dente",
     price: "R$ 50,90",
@@ -60,6 +65,7 @@ const toothProducts = [
 
   },
   {
+    id: 5,
     name: "Mogno",
     type: "Escova de dente",
     price: "R$ 50,90",
@@ -71,6 +77,7 @@ const toothProducts = [
     fake_rating: "./assets/icons/ic_rate.svg"
   },
   {
+    id: 6,
     name: "Carvalho",
     type: "Escova de dente",
     price: "R$ 50,90",
@@ -83,6 +90,7 @@ const toothProducts = [
 
   },
   {
+    id: 7,
     name: "Fio dental",
     type: "Outros",
     price: "R$ 50,90",
@@ -96,6 +104,7 @@ const toothProducts = [
   },
 
   {
+    id: 8,
     name: "Fio dental",
     type: "Outros",
     price: "R$ 50,90",
@@ -149,13 +158,13 @@ function renderingErrorSection(typeButton) {
     <div class="error-section">
       <h3>${typeButton}</h3>
       <div class="section-line"></div>
-      <h2>Ops! Parece que não temos esse tipo de produto por aqui Que tal conferir <a href="">outros?</a></h2>
+      <h2>Ops! Parece que não temos esse tipo de produto por aqui. <br> Que tal conferir <a href="">outros?</a></h2>
       <img src="./assets/images/img_not_found.svg" alt="error" />
     </div> `
   
     document.querySelector('.section-type-products').appendChild(errorSection)
   
-    console.log(errorSection)
+  
     
   } 
 }
@@ -179,22 +188,30 @@ function renderFilteredCards(matchTypeCards) {
           ${groupProducts[type].map(product => {
             return `
             ${product.label === 'discount' 
-          ? `<div class="product-card">
-              <label>${product.percent} OFF</label>
-              <img class="product-image" src="${product.img_url}" alt="${product.alt}" />
-              <img class="product-rate"src="${product.fake_rating}" alt="fake rating" />
-              <h4>${product.name}</h4>
-              <label class="product-previous-price"><s>${product.previous_price}</s></label>
-              <p class="product-price">${product.price}</p> 
+          ? `<ul class="product-card">
+              <li><label>${product.percent} OFF</label></li>
+              <li><img class="product-image" src="${product.img_url}" alt="${product.alt}" /></li>
+              <li><img class="product-rate"src="${product.fake_rating}" alt="fake rating" /></li>
+              <li>
+                <h4>${product.name}</h4>
+              </li>
+              <li><label class="product-previous-price"><s>${product.previous_price}</s></label></li>
+              <li>
+                <p class="product-price">${product.price}</p>
+              </li> 
               <button>Adicionar ao carrinho</button>
-            </div>`
-          : `<div class="product-card">
-              <img class="product-image" src="${product.img_url}" alt="${product.alt}" />
-              <img class="product-rate" src="${product.fake_rating}" alt="fake rating" />
-              <h4>${product.name}</h4>
-              <p class="product-price">${product.price}</p> 
+            </ul>`
+          : `<ul class="product-card">
+              <li><img class="product-image" src="${product.img_url}" alt="${product.alt}" /></li>
+              <li><img class="product-rate" src="${product.fake_rating}" alt="fake rating" /></li>
+              <li>
+                <h4>${product.name}</h4>
+              </li>
+              <li>
+                <p class="product-price">${product.price}</p>
+              </li> 
               <button>Adicionar ao carrinho</button>
-            </div>`
+            </ul>`
         }   
       `;
           }).join('')}

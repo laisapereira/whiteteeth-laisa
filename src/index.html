@@ -30,7 +30,28 @@
           <div class="header-user">
             <button>Assinar Whiteeth</button>
             <img src="./assets/icons/ic_user.svg" alt="user-icon">
-            <img src="./assets/icons/ic_cart.svg" alt="shop-cart">
+            <button id="header-cart-user">
+              <img src="./assets/icons/ic_cart.svg" alt="shop-cart">
+              <p>0</p>
+        
+            </button>
+
+            <div class="container-cart">
+              <div id="root">
+                  <section class="cart-sidebar">
+                    <h3 class="cart-title">My cart</h3>
+                    <div id ="cart-items"> 
+                      <h4> Your cart is empty</h4>
+                    </div>
+                    <div class="cart-total">
+                      <h4>Total</h4>
+                      <p>R$ 0,00</p>
+                    </div>
+                  </section>
+              </div>
+
+
+            </div>
           </div> 
         </header>
       </div>
@@ -43,7 +64,7 @@
 
       <section class="section-banner">
         <div>
-          <h2>Cuide do seu sorriso, <span>mas também do planeta</span></h2>
+          <h2>Cuide do seu sorriso, <br><span>mas também do planeta</span></h2>
           <p>Encontre aqui produtos de higiene bucal orgânicos e refrescantes, como pasta de dente, escova de dente e muito mais!</p>
         </div>
       </section>
@@ -55,7 +76,7 @@
           <div class="buttons-filter-choices">
             <img src="./assets/icons/ic_filter.svg" alt="filter-icon">
             <p>Filtros </p>
-            <button class="filter-option active" value="Todos" onclick="filterCards()">Todos </button>
+            <button class="filter-option" value="Todos" onclick="filterCards()">Todos </button>
             <button class="filter-option" value ="Pasta de dente" onclick="filterCards()">Pasta de dente</button>
             <button class="filter-option" value ="Escova de dente" onclick="filterCards()">Escova de dente</button>
             <button class="filter-option" value ="Raspador de língua" onclick="filterCards()" >Raspador de língua</button>
