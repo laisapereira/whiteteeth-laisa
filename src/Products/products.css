@@ -1,7 +1,7 @@
 @import url("../global.css");
 
 
-.container-products {
+.container-products, .error-section {
   display: flex;
   flex-direction: column;
   font-family: var(--main-font-style);
@@ -75,4 +75,31 @@
 .product-price {
   font-size: clamp(1rem, 2vw, 1.25rem);
   color: var(--main-yellow-saffron);
+}
+
+.error-section {
+
+  height: 100vh;
+
+   h2 {
+    padding: 1rem 1.8rem;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    color: var(--main-yellow-saffron);
+    font-weight: 700;
+    text-align: center;
+   }
+}
+
+.error-section a:hover  {
+  color: var(--main-brown-licore);
+  text-decoration: ;
+
+}
+
+.error-section img {
+
+  width: 45rem;
+  margin: 0 auto;
+  padding-top: 5rem;
+
 }

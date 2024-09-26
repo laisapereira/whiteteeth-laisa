@@ -148,7 +148,9 @@ function renderingErrorSection(typeButton) {
     
     <div class="error-section">
       <h3>${typeButton}</h3>
-      <h2>Ops! Parece que não temos esse produto por aqui</h2>
+      <div class="section-line"></div>
+      <h2>Ops! Parece que não temos esse tipo de produto por aqui Que tal conferir <a href="">outros?</a></h2>
+      <img src="./assets/images/img_not_found.svg" alt="error" />
     </div> `
   
     document.querySelector('.section-type-products').appendChild(errorSection)
