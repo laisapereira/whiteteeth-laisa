@@ -130,7 +130,7 @@ if (typeButton === 'Todos') {
 
 if (matchTypeCards.length > 0) {
   renderFilteredCards(matchTypeCards);
-} else {
+} else if (typeButton !== 'Todos') {
   renderingErrorSection(typeButton, matchTypeCards);   
 }
 
