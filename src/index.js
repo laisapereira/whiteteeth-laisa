@@ -26,7 +26,7 @@ const toothProducts = [
 
   },
   {
-    id: 2,
+    id: 3,
     name: "Uva",
     type: "Pasta de dente",
     price: "R$ 50,90",
@@ -39,7 +39,7 @@ const toothProducts = [
 
   },
   {
-    id: 3,
+    id: 4,
     name: "Café",
     type: "Pasta de dente",
     price: "R$ 50,90",
@@ -52,7 +52,7 @@ const toothProducts = [
 
   },
   {
-    id: 4,
+    id: 5,
     name: "Bamboo",
     type: "Escova de dente",
     price: "R$ 50,90",
@@ -65,7 +65,7 @@ const toothProducts = [
 
   },
   {
-    id: 5,
+    id: 6,
     name: "Mogno",
     type: "Escova de dente",
     price: "R$ 50,90",
@@ -77,7 +77,7 @@ const toothProducts = [
     fake_rating: "./assets/icons/ic_rate.svg"
   },
   {
-    id: 6,
+    id: 7,
     name: "Carvalho",
     type: "Escova de dente",
     price: "R$ 50,90",
@@ -90,7 +90,7 @@ const toothProducts = [
 
   },
   {
-    id: 7,
+    id: 8,
     name: "Fio dental",
     type: "Outros",
     price: "R$ 50,90",
@@ -104,7 +104,7 @@ const toothProducts = [
   },
 
   {
-    id: 8,
+    id: 9,
     name: "Fio dental",
     type: "Outros",
     price: "R$ 50,90",
@@ -140,7 +140,7 @@ if (typeButton === 'Todos') {
 if (matchTypeCards.length > 0) {
   renderFilteredCards(matchTypeCards);
 } else if (typeButton !== 'Todos') {
-  renderingErrorSection(typeButton, matchTypeCards);   
+  renderingErrorSection(typeButton);   
 }
 
  }
@@ -163,8 +163,6 @@ function renderingErrorSection(typeButton) {
     </div> `
   
     document.querySelector('.section-type-products').appendChild(errorSection)
-  
-  
     
   } 
 }
@@ -199,7 +197,13 @@ function renderFilteredCards(matchTypeCards) {
               <li>
                 <p class="product-price">${product.price}</p>
               </li> 
-              <button>Adicionar ao carrinho</button>
+
+              <div class="quantity">
+                  <span class="minus"><</span>
+                  <span>teste</span>
+                  <span class="plus">></span>
+              </div>
+              <button onClick="addToCart(${product.id})">Adicionar ao carrinho</button>
             </ul>`
           : `<ul class="product-card">
               <li><img class="product-image" src="${product.img_url}" alt="${product.alt}" /></li>
@@ -210,7 +214,12 @@ function renderFilteredCards(matchTypeCards) {
               <li>
                 <p class="product-price">${product.price}</p>
               </li> 
-              <button>Adicionar ao carrinho</button>
+              <div class="quantity">
+                  <span class="minus"><</span>
+                  <span>teste</span>
+                  <span class="plus">></span>
+              </div>
+              <button onClick="addToCart(${product.id})">Adicionar ao carrinho</button>
             </ul>`
         }   
       `;
@@ -222,6 +231,84 @@ function renderFilteredCards(matchTypeCards) {
 
 
 }
+
+// Carrinho de compras
+
+// array vazio para armazenar os produtos do carrinho
+// logica do addToCart() ==> pessoa clicou, identificou o id do objeto clicado, adicionou o objeto ao array de produtos do carrinho
+// logica do displayCart() ==> se o carrinho estiver vazio, exibir mensagem de carrinho vazio, se não, exibir os produtos do carrinho
+
+
+// logica do removeFromCart() ==> pessoa clicou, identificou o id do objeto clicado, removeu o objeto do array de produtos do carrinho
+var productsCart = []
+
+function addToCart (productId) {
+ 
+  var { img_url, name, type, price, previous_price} = toothProducts.find(product => product.id === productId)
+
+  var summarizedProduct = {
+    img_url,
+    name,
+    type,
+    price,
+    previous_price,
+    id: productId,
+    quantity: 1
+  }
+
+  let positionCardArray = productsCart.findIndex((value) => value.productId == productId);
+  if(productsCart.length <= 0){
+    productsCart.push({
+          ...summarizedProduct,
+          id: productId,
+          quantity: 1
+      });
+  }else if(positionCardArray < 0){
+    productsCart.push({
+          ...summarizedProduct,
+          id: productId,
+          quantity: 1
+      });
+  }else{
+    productsCart[positionCardArray].quantity = productsCart[positionCardArray].quantity + 1;
+  }
+  displayCart(productsCart);
+  addCartToMemory();
+  console.log(productsCart);
+
+}
+
+
+const addCartToMemory = () => {
+  localStorage.setItem('productsCart', JSON.stringify(productsCart));
+}
+
+const getCartFromMemory = () => {
+
+  if(localStorage.getItem('productsCart')) {
+    productsCart = JSON.parse(localStorage.getItem('cart'));
+    displayCart(productsCart);
+}
+}
+
+function displayCart(summarizedProduct) {
+  let j = 0;
+  if(productsCart.length ==0) {
+    document.getElementById('cart-item').innerHTML = `<p>Seu carrinho está vazio :( </p>`
+  } else {
+    document.getElementById('cart-item').innerHTML = summarizedProduct.map((product) => {
+      return(
+        `<div class="cart-item">
+            <img src="${product.img_url}" alt="product" />
+            <div>
+              <h3>${product.name}</h3>
+              <h4>${product.price}</h4>` +
+              `<button onclick="removeFromCart(${product.id})">Remover</button> </div>`) 
+    }).join('')
+  }
+}
+
+
 
 
 
