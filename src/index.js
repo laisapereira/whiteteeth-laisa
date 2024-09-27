@@ -221,25 +221,14 @@ function renderFilteredCards(matchTypeCards) {
 
 }
 
-// Carrinho de compras
-
-// array vazio para armazenar os produtos do carrinho
-
-// logica do removeFromCart() ==> pessoa clicou, identificou o id do objeto clicado, removeu o objeto do array de produtos do carrinho
 var productsCart = []
 
 function addToCart (productId) {
  
   var { img_url, name, type, price, previous_price} = toothProducts.find(product => product.id === productId)
 
-  var summarizedProduct = {
-    img_url,
-    name,
-    type,
-    price,
-    previous_price,
-    quantity: 1
-  }
+  var summarizedProduct = {img_url, name, type, price, previous_price}
+
   let positionItemInCart = productsCart.findIndex((value) => value.productId == productId);
   if(productsCart.length <= 0){
     productsCart.push({
@@ -247,7 +236,7 @@ function addToCart (productId) {
           id: productId,
           quantity: 1
       });
-  }else if(positionItemInCart < 0){
+  } else if(positionItemInCart < 0){
     productsCart.push({
           ...summarizedProduct,
           id: productId,
@@ -262,32 +251,37 @@ function addToCart (productId) {
 
 }
 
-
-
-
-const changeQuantityCart = (productId, typeOfCount) => {
-  let positionItemInCart = productsCart.findIndex((value) => value.productId == productId);
+function changeQuantityCart (productId, typeOfCount) {
+  
+  let positionItemInCart = productsCart.findIndex((value) => value.id == productId);
+ 
   if(positionItemInCart >= 0){
-      let info = productsCart[positionItemInCart];
-      console.log(info)
-      switch (typeOfCount) {
+      var chooseProduct = productsCart[positionItemInCart];
+      console.log(chooseProduct)
+
+         switch (typeOfCount) {
           case 'plus':
-              info.quantity = info.quantity + 1;
-              break;     
+              chooseProduct.quantity = chooseProduct.quantity + 1;
+
+              
+              break;
+      
           default:
-              let changeQuantity = info.quantity - 1;
+              let changeQuantity = chooseProduct.quantity - 1;
               if (changeQuantity > 0) {
-                  info.quantity = changeQuantity;
+                  chooseProduct.quantity = changeQuantity;
               }else{
                   productsCart.splice(positionItemInCart, 1);
               }
               break;
       }
-  }
-  displayCart(productsCart);
-  addCartToMemory();
-}
 
+      displayCart(productsCart);
+      addCartToMemory();
+
+  }
+  
+}
 
 const addCartToMemory = () => {
   localStorage.setItem('productsCart', JSON.stringify(productsCart));
@@ -300,8 +294,7 @@ const getCartFromMemory = () => {
 }
 }
 
-
-let containerCart = document.getElementById('cart-item')
+let containerCart = document.querySelector('.cart-items')
 
 function displayCart(summarizedProduct) {
 
@@ -310,17 +303,19 @@ function displayCart(summarizedProduct) {
   if(summarizedProduct.length > 0){
       summarizedProduct.forEach(item => {
           totalQuantity = totalQuantity +  item.quantity;
+
+          console.log(item.quantity)
+
           let newItem = document.createElement('div');
           newItem.classList.add('item');
           console.log(item)
           newItem.dataset.id = item.id;
 
           let positionItemInCart = productsCart.findIndex((value) => value.id == item.id);
-          let info = productsCart[positionItemInCart];
-          containerCart.appendChild(newItem);
-
-          console.log(info.quantity)
-
+          
+          var info = productsCart[positionItemInCart];
+   
+          containerCart.appendChild(newItem)
           newItem.innerHTML = `
               <div>
                 <div class="image">
@@ -337,6 +332,9 @@ function displayCart(summarizedProduct) {
                 </div>
               </div>
           `;
+
+    
+          
       })
   }
 /*   iconCartSpan.innerText = totalQuantity; */
@@ -345,20 +343,11 @@ function displayCart(summarizedProduct) {
   containerCart.addEventListener('click', (event) => {
   let positionClick = event.target;
   if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
-      let productId = positionClick.parentElement.parentElement.dataset.id;
-      console.log(productId)
-      let typeOfCount = 'minus';
-      if(positionClick.classList.contains('plus')){
-          typeOfCount = 'plus';
-      }
+      let productId = positionClick.closest('.item').getAttribute('data-id')
+      positionClick.classList.contains('plus') ? typeOfCount = 'plus' :typeOfCount = 'minus'
+
       changeQuantityCart(productId, typeOfCount);
   } 
 
   addCartToMemory()
 })
-
-
-
-
-
- 
