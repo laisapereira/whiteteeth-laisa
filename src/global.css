@@ -8,7 +8,11 @@
   --main-condensed-font: "Roboto Condensed", sans-serif;
   --h2-font-size: clamp(2rem, 3vw, 3rem);
 
-  // padrao para responsividade tbm
+  --mobile-screen: 320px;
+  --tablet-screen: 650px;
+  --large-tablet-screen: 900px;
+  --desktop-screen: 1100px;
+  --large-desktop-screen: 1700px;
 }
 
 * {
@@ -30,7 +34,16 @@
 }
 
 
+@media screen and (min-width:320px) and (max-width:550px) {
+  .aligned-main-section {
+    padding: 1.5rem;
+  }
+
+}
 
 ul {
   list-style-type: none;
 }
+
+
+

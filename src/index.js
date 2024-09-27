@@ -118,6 +118,13 @@ const toothProducts = [
   },
  ]
 
+
+ const buttonCart = document.getElementById('header-cart-user')
+ const cartContainer = document.querySelector(".container-cart")
+ buttonCart.addEventListener('click', () => {
+    cartContainer.classList.toggle('active')
+ })
+
 const filterButtons = document.querySelectorAll(".section-filter button")
 const cards = document.querySelectorAll('.product-card')
 

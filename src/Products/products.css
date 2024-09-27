@@ -18,6 +18,7 @@
     color: var(--main-brown-licore);
     font-size: clamp(1.2rem, 2.3vw, 1.5rem);
   }
+ 
 }
 
 .product-card {
@@ -104,13 +105,18 @@ ul:hover {
 
 
 .container-cart {
+  display:none;
+
+}
+
+.container-cart.active {
+
   display:flex;
   margin-left: auto;
   width: 12rem;
   max-width: 13rem;
 
   margin-left: auto;
-
 
 }
 
@@ -148,4 +154,22 @@ ul:hover {
   margin: 1.4rem 0;
   padding: 0.8rem 0;
   border-top: 1px solid var(--main-brown-licore);
+}
+
+
+@media screen and (min-width:320px) and (max-width:550px) {
+
+  .tooth-products {
+    flex-wrap:nowrap;
+    overflow: scroll;
+    padding: 1rem 1.7rem;
+    
+  }
+
+  .container-products {
+    margin-left: -0.4rem;
+  }
+
+
+
 }

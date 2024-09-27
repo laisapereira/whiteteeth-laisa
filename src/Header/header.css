@@ -44,6 +44,9 @@ nav {
   display:flex;
   align-items: center;
   gap: 1rem;
+
+  
+
 }
 
 .header-user button {
@@ -71,10 +74,6 @@ nav {
   padding: 0.5rem 0.8rem;
   gap: 1.3rem;
   color: var(--main-brown-licore);
-
-  
-  
-
   background-color: transparent;
 }
 
@@ -83,3 +82,14 @@ nav {
   transform: scale(1.1);
   cursor: pointer;
 }
+
+
+// responsive 
+
+@media screen and (min-width:375px) and (max-width:550px) {
+
+  body header {
+ 
+    background-color:red
+ 
+ }

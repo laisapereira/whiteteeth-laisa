@@ -4,7 +4,9 @@
   display: flex;
   flex-direction: column;
   font-family: var(--main-font-style);
-  padding: 3rem 0;
+ 
+
+  padding-top: 3.5rem;
   width: 100%;
   max-width: 100%;
 }
@@ -18,7 +20,7 @@
 
 .filter-choices {
   gap: 1rem;
-  font-size: 1.2rem;
+  font-size: clamp(1.4rem, 1.6vw, 1.2rem)
 
   width: 100%;
   max-width: 100%;
@@ -36,11 +38,11 @@
 
   p {
     font-weight: 700;
+    font-size: clamp(1rem, 0.5vw, 1.5rem)
   }
 
   color: var(--main-brown-licore);
   font-size: clamp(0.8rem, 1.5vw, 1rem);
-  max-width: 80%; 
 }
 
 .filter-option {
@@ -81,3 +83,56 @@
   background-color: var(--main-yellow-saffron);
   cursor: pointer;
 }
+
+@media screen and (min-width:320px) and (max-width:900px) {
+
+  .button-filter-choices {
+
+    width:100%;
+    max-width: 100%;
+  }
+
+  .button-filter-choices p {
+
+    font-size: 1.5rem;
+
+    width:100%;
+    max-width: 100%;
+  }
+
+  .filter-option {
+    width: 10.5em;
+
+  }
+
+  .bigger-choice {
+    font-size: 12px;
+    width: 11.5rem;
+  }
+
+  .filter-choices {
+    overflow:scroll;
+    padding: 1.5rem 1.5rem;
+
+  }
+
+  .section-filter {
+    padding-bottom: 1.5rem;
+  }
+
+
+  header {
+    background-color:red;
+  }
+
+  .section-line {
+    margin-bottom: 0.8rem;
+  }
+
+
+
+
+
+
+
+ }
