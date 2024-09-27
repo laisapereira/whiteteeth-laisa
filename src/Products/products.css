@@ -192,6 +192,11 @@ ul:hover .product-previous-price {
 
   .error-section img {
     width: 26rem;
+ 
+  }
+
+  .error-section {
+    height: auto;
   }
 
   .section-type-products {
@@ -230,8 +235,13 @@ ul:hover .product-previous-price {
     justify-content: center;
   }
 
+  .section-line {
+    width: 30vw;
+  }
 
-  
+
+
+
 
 }
 

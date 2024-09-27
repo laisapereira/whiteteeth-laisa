@@ -9,7 +9,7 @@
 
   --main-font-style: "Roboto", sans-serif;
   --main-condensed-font: "Roboto Condensed", sans-serif;
-  --h2-font-size: clamp(2.5rem, 3vw, 3rem);
+  --h2-font-size: clamp(1.8rem, 3vw, 3rem);
 
   --mobile-screen: 320px;
   --tablet-screen: 650px;

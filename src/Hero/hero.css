@@ -15,7 +15,7 @@
   height: 50vh;
 }
 
-.section-banner div {
+.banner-text div {
   width: 48%;
   max-width: 100%;
   padding: 0.8vh 2vw;
@@ -24,11 +24,11 @@
   margin-left: auto;
 }
 
-.section-banner div span {
+.banner-text span {
   font-style: italic;
 }
 
-.section-banner h2 {
+.banner-text h2 {
   font-size: var(--h2-font-size);
   font-weight: 700;
   margin-bottom: 1rem;
@@ -36,7 +36,7 @@
   max-width: 75%;
 }
 
-.section-banner div p {
+.banner-text p {
   font-size: clamp(1rem, 1.6vw, 1.5rem);
   font-family: var(--main-condensed-font);
   font-weight: 400;
@@ -45,8 +45,4 @@
 
 // responsive
 
-@media screen and (min-width: 375px) and (max-width: 550px) {
-  .section-banner {
-    display:none;
-  }
-}
+

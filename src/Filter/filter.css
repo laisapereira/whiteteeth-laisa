@@ -153,3 +153,27 @@
     display:none;
    }
  }
+
+ @media screen and (min-width: 320px) and (max-width: 800px) {
+
+  .section-banner {
+    background-image: url("../assets/images/img_hero_mobile.svg");
+    background-size: contain;
+    background-position: initial
+  }
+
+  .banner-text {
+   background: linear-gradient(180deg, #BA8C66 0%, #A37654 100%);
+   justify-content: center;
+    width: 100%;
+    padding: 1.5rem;
+  }
+
+  .banner-text h2 {
+    width: 100%;
+    max-width: 100%;
+  }
+
+
+
+}
