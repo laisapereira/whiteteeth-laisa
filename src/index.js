@@ -131,6 +131,7 @@ const cards = document.querySelectorAll('.product-card')
 
 filterButtons.forEach(button => {
   button.addEventListener('click', filterCards)
+  
 })
 
 function filterCards(e) {

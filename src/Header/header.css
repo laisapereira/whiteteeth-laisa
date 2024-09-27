@@ -83,13 +83,27 @@ nav {
   cursor: pointer;
 }
 
+.header-menu {
+  background-color: transparent;
+  border: none;
+}
+
+.header-menu:hover {
+  scale: 1.1;
+}
+
+
+
+
+
+
+
 
 // responsive 
 
-@media screen and (min-width:375px) and (max-width:550px) {
+@media screen and (min-width:800px) and (max-width:1250px) {
 
-  body header {
- 
-    background-color:red
- 
+  header {
+    background-color: blue;
+  }
  }
