@@ -8,7 +8,7 @@
 }
 
 .ad-register h4 {
-  color: var(--bg-product);
+  color: var(--main-yellow-cornsilk);
   text-align: center;
   font-weight: 300;
   padding: 0.4rem;
@@ -16,7 +16,7 @@
 }
 
 .ad-register h4 a {
-  color: var(--bg-product);
+  color: var(--main-yellow-cornsilk);
 }
 
 .ad-register a:hover {
@@ -50,7 +50,7 @@ nav {
 }
 
 .header-user button {
-  color: var(--bg-product);
+  color: var(--main-yellow-cornsilk);
   background-color: var(--main-brown-licore);
   font-weight: 700;
   padding: 0.75rem 1.5rem;
@@ -58,7 +58,7 @@ nav {
 }
 
 .header-user button:hover {
-  background-color: var(--main-hover);
+  background-color: var(--hover-licore);
   cursor: pointer;
 
 }
@@ -78,7 +78,7 @@ nav {
 }
 
 #header-cart-user:hover {
-  background-color: var(--bg-product);
+  background-color: var(--main-yellow-cornsilk);
   transform: scale(1.1);
   cursor: pointer;
 }

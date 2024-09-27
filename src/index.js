@@ -194,7 +194,7 @@ function renderFilteredCards(matchTypeCards) {
             return `
             ${product.label === 'discount' 
           ? `<ul class="product-card">
-              <li><label>${product.percent} OFF</label></li>
+              <li><label class="product-discount">${product.percent} OFF</label></li>
               <li><img class="product-image" src="${product.img_url}" alt="${product.alt}" /></li>
               <li><img class="product-rate"src="${product.fake_rating}" alt="fake rating" /></li>
               <li>
@@ -202,18 +202,18 @@ function renderFilteredCards(matchTypeCards) {
               </li>
               <li><label class="product-previous-price"><s>${product.previous_price}</s></label></li>
               <li>
-                <p class="product-price">${product.price}</p>
+                <p class="product-price"> R$ ${product.price}</p>
               </li> 
               <button onClick="addToCart(${product.id})">Adicionar ao carrinho</button>
             </ul>`
           : `<ul class="product-card">
-              <li><img class="product-image" src="${product.img_url}" alt="${product.alt}" /></li>
+              <li class="no-discount"><img class="product-image" src="${product.img_url}" alt="${product.alt}" /></li>
               <li><img class="product-rate" src="${product.fake_rating}" alt="fake rating" /></li>
               <li>
                 <h4>${product.name}</h4>
               </li>
               <li>
-                <p class="product-price">${product.price}</p>
+                <p class="product-price">R$ ${product.price}</p>
               </li> 
               <button onClick="addToCart(${product.id})">Adicionar ao carrinho</button>
             </ul>`
