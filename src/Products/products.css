@@ -25,6 +25,11 @@
   }
 }
 
+
+.error-section a {
+  color: var(--main-yellow-saffron);
+}
+
 .product-card {
   display: flex;
   flex-direction: column;

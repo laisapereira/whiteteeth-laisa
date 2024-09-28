@@ -118,51 +118,47 @@ const toothProducts = [
   },
  ]
 
-
- const buttonCart = document.getElementById('header-cart-user')
- const cartContainer = document.querySelector(".container-cart")
- buttonCart.addEventListener('click', () => {
-    cartContainer.classList.toggle('active')
- })
+// filtro de produtos
 
 const filterButtons = document.querySelectorAll(".section-filter button")
 const cards = document.querySelectorAll('.product-card')
 
+const defaultButton = document.getElementById('filter-default')
+
+if (defaultButton) {
+  defaultButton.classList.add('active')
+  renderFilteredCards(toothProducts);
+}
 
 filterButtons.forEach(button => {
-  button.addEventListener('click', filterCards)
-  
+  button.addEventListener('click', filterCards)  
 })
 
 function filterCards(e) {
- const typeButton = e.target?.value
 
+ defaultButton.classList.remove('active')
+ const typeButton = e.target?.value
  matchTypeCards = toothProducts.filter(product => product.type === typeButton)
- 
  renderFilteredCards(matchTypeCards)
 
 if (typeButton === 'Todos') { 
  renderFilteredCards(toothProducts)
 }
-
 if (matchTypeCards.length > 0) {
   renderFilteredCards(matchTypeCards);
 } else if (typeButton !== 'Todos') {
   renderingErrorSection(typeButton);   
 }
-
- }
+}
 
 function renderingErrorSection(typeButton) {
+ var errorContainer = document.querySelector('.error-section')
 
-  var divError = document.querySelector('.error-section')
-
- if (divError) { 
-  divError.querySelector('h3').textContent = typeButton
+ if (errorContainer) { 
+  errorContainer.querySelector('h3').textContent = typeButton
 }  else  {
    var errorSection = document.createElement('div')
     errorSection.innerHTML = ` 
-    
     <div class="error-section">
       <h3>${typeButton}</h3>
       <div class="section-line"></div>
@@ -228,6 +224,16 @@ function renderFilteredCards(matchTypeCards) {
 
 
 }
+
+
+// carrinho de compras
+
+const buttonCart = document.getElementById('header-cart-user')
+const cartContainer = document.querySelector(".container-cart")
+
+buttonCart.addEventListener('click', () => {
+   cartContainer.classList.toggle('active')
+})
 
 var productsCart = []
 
