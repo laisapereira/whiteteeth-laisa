@@ -359,3 +359,35 @@ function displayCart(summarizedProduct) {
 
   addCartToMemory()
 })
+
+var userEmail = document.querySelector('.footer-email-input').value
+var buttonSubmit = document.querySelector('.footer-form-button')
+
+const baseURL = "http://localhost:3000/email"
+
+const sendEmail = async (e, userEmail) => {
+  e.prevent.default
+  
+  try {
+    const response = await fetch(baseURL, {
+      method: "POST",
+      body: JSON.stringify({userEmail}),
+      headers: {
+        "Content-Type": "application/json"
+      }
+
+    }
+  )
+  return response.data
+    
+  } catch (error) {
+    console.log(error)
+    
+  }
+
+
+
+
+}
+
+buttonSubmit.addEventListener('submit', sendEmail)

@@ -1,7 +1,32 @@
 @import url("../global.css");
 
+
+.banner-image {
+
+    width: 48%;
+ 
+}
+
+
+
 .section-banner {
-  background-image: url("../assets/images/img_hero.svg");
+display:flex;
+width: 100%;
+
+
+background-image: url("../assets/images/img_bg_hero.svg")
+
+
+}
+
+
+.banner-text {
+/*  background: linear-gradient(180deg, #BA8C66 0%, #A37654 100%);  */
+}
+
+
+
+/*   background-image: l("../assets/images/img_hero.svg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -12,17 +37,17 @@
   font-family: var(--main-font-style);
   font-size: 1.5rem;
 
-  height: 50vh;
-}
+  height: 50vh; */
 
-.banner-text div {
-  width: 48%;
-  max-width: 100%;
+
+/* .banner-text  {
+
+
   padding: 0.8vh 2vw;
   display: flex;
   flex-direction: column;
   margin-left: auto;
-}
+} */
 
 .banner-text span {
   font-style: italic;
@@ -32,8 +57,8 @@
   font-size: var(--h2-font-size);
   font-weight: 700;
   margin-bottom: 1rem;
-  width: 75%;
-  max-width: 75%;
+/*   width: 75%;
+  max-width: 75%; */
 }
 
 .banner-text p {
@@ -46,3 +71,4 @@
 // responsive
 
 
+ur
