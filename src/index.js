@@ -162,7 +162,7 @@ function renderingErrorSection(typeButton) {
     <div class="error-section">
       <h3>${typeButton}</h3>
       <div class="section-line"></div>
-      <h2>Ops! Parece que não temos esse tipo de produto por aqui. <br> Que tal conferir <a href="">outros?</a></h2>
+      <h2>Ops! Parece que não temos esse tipo de produto por aqui. <br> Que tal conferir <a href="/src">outros?</a></h2>
       <img src="./assets/images/img_not_found.svg" alt="error" />
     </div> `
   
@@ -244,21 +244,17 @@ function addToCart (productId) {
   var summarizedProduct = {img_url, name, type, price, previous_price}
 
   let positionItemInCart = productsCart.findIndex((value) => value.productId == productId);
-  if(productsCart.length <= 0){
-    productsCart.push({
-          ...summarizedProduct,
-          id: productId,
-          quantity: 1
-      });
-  } else if(positionItemInCart < 0){
-    productsCart.push({
-          ...summarizedProduct,
-          id: productId,
-          quantity: 1
-      });
-  }else{
+
+  if (positionItemInCart >= 0) {
     productsCart[positionItemInCart].quantity = productsCart[positionItemInCart].quantity + 1;
-  }
+  } else {
+    productsCart.push({
+          ...summarizedProduct,
+          id: productId,
+          quantity: 1
+      });
+  } 
+
   displayCart(productsCart);
   addCartToMemory();
   console.log(productsCart);
@@ -275,9 +271,7 @@ function changeQuantityCart (productId, typeOfCount) {
 
          switch (typeOfCount) {
           case 'plus':
-              chooseProduct.quantity = chooseProduct.quantity + 1;
-
-              
+              chooseProduct.quantity = chooseProduct.quantity + 1;         
               break;
       
           default:
@@ -309,55 +303,59 @@ const getCartFromMemory = () => {
 }
 
 let containerCart = document.querySelector('.cart-items')
+let totalCart = document.querySelector('.cart-result')
 
 function displayCart(summarizedProduct) {
 
  containerCart.innerHTML = '';
   let totalQuantity = 0;
+  let totalCartValue = 0;
+
   if(summarizedProduct.length > 0){
       summarizedProduct.forEach(item => {
           totalQuantity = totalQuantity +  item.quantity;
+          totalCartValue = totalCartValue + item.price * item.quantity
 
-          console.log(item.quantity)
 
-          let newItem = document.createElement('div');
-          newItem.classList.add('item');
-          console.log(item)
-          newItem.dataset.id = item.id;
+          let newProduct = document.createElement('div');
 
+          newProduct.classList.add('selected-item');
+          newProduct.dataset.id = item.id;
           let positionItemInCart = productsCart.findIndex((value) => value.id == item.id);
-          
-          var info = productsCart[positionItemInCart];
-   
-          containerCart.appendChild(newItem)
-          newItem.innerHTML = `
-              <div>
-                <div class="image">
-                    <img src="${info.img_url}">
-                </div>
-                <div class="name">
-                  ${info.name}
-                </div>
-                <div class="totalPrice"> R$ ${Number(info.price * item.quantity)}</div>
-                <div class="quantity">
-                    <button class="minus"> - </button>
-                    <span>${item.quantity}</span>
-                    <button class="plus"> + </button>
-                </div>
-              </div>
-          `;
+          var productSelected = productsCart[positionItemInCart];
 
-    
-          
-      })
+            newProduct.innerHTML = `
+                <div>
+                  <div class="image">
+                      <img src="${productSelected.img_url}">
+                  </div>
+                  <div class="name">
+                    ${productSelected.name}
+                  </div>
+                  <div class="totalPrice"> R$ ${Number(productSelected.price * item.quantity).toFixed(2)}</div>
+                  <div class="quantity">
+                      <button class="minus"> - </button>
+                      <span>${item.quantity}</span>
+                      <button class="plus"> + </button>
+                  </div>
+                </div>
+            `;
+
+            containerCart.appendChild(newProduct)
+
+          }
+     
+        )
+      
   }
+     totalCart.innerText = `R$ ${totalCartValue.toFixed(2)}`
 /*   iconCartSpan.innerText = totalQuantity; */
 }
 
   containerCart.addEventListener('click', (event) => {
   let positionClick = event.target;
   if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
-      let productId = positionClick.closest('.item').getAttribute('data-id')
+      let productId = positionClick.closest('.selected-item').getAttribute('data-id')
       positionClick.classList.contains('plus') ? typeOfCount = 'plus' :typeOfCount = 'minus'
 
       changeQuantityCart(productId, typeOfCount);
@@ -366,14 +364,15 @@ function displayCart(summarizedProduct) {
   addCartToMemory()
 })
 
+
+// envio de email ao lead
+
 var buttonSubmit = document.querySelector('.footer-form-button')
 
 buttonSubmit.addEventListener('click', async function(e) {
   e.preventDefault()
   var userEmail = document.querySelector(".footer-email-input").value
-  console.log(userEmail)
-  
-  console.log("ain")
+
   try {
     const response = await fetch("http://localhost:3000/email", {
       method: "POST",
