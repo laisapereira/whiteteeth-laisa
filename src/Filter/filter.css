@@ -27,11 +27,13 @@
 
   width: 100%;
   max-width: 100%;
-  img {
-    width: auto;
-    height: auto;
-    max-width: 30%;
-  }
+  
+}
+
+.img-chat {
+  width: auto;
+  height: auto;
+  max-width: 30%;
 }
 
 .buttons-filter-choices {

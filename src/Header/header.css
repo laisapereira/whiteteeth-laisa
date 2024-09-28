@@ -49,7 +49,7 @@ nav {
 
 }
 
-.header-user button {
+.button-assign {
   color: var(--main-yellow-cornsilk);
   background-color: var(--main-brown-licore);
   font-weight: 700;
@@ -57,7 +57,7 @@ nav {
   border-radius: 0.5rem;
 }
 
-.header-user button:hover {
+.button-assign button:hover {
   background-color: var(--hover-licore);
   cursor: pointer;
 
@@ -97,13 +97,30 @@ nav {
 
 
 
+@media screen and (min-width:320px) and (max-width:800px) {
 
-
-// responsive 
-
-@media screen and (min-width:800px) and (max-width:1250px) {
-
-  header {
-    background-color: blue;
+  header .button-assign, {
+    display:none;
   }
+
+  .header-title {
+    width: 50%;
+  }
+
+
+
+ 
  }
+
+
+ @media screen and (min-width: 801px) and (max-width: 1250px) {
+
+
+
+ }
+ 
+ 
+ 
+
+
+

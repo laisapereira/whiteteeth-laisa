@@ -367,11 +367,11 @@ function displayCart(summarizedProduct) {
 
 // envio de email ao lead
 
-var buttonSubmit = document.querySelector('.footer-form-button')
+var buttonSubmit = document.querySelector('.lead-form-button')
 
 buttonSubmit.addEventListener('click', async function(e) {
   e.preventDefault()
-  var userEmail = document.querySelector(".footer-email-input").value
+  var userEmail = document.querySelector(".lead-email-input").value
 
   try {
     const response = await fetch("http://localhost:3000/email", {
