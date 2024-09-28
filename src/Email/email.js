@@ -5,7 +5,7 @@ buttonSubmit.addEventListener('click', async function(e) {
   var userEmail = document.querySelector(".footer-email-input").value
   console.log(userEmail)
   
-  console.log("ain")
+
   try {
     const response = await fetch("http://localhost:3000/email", {
       method: "POST",
