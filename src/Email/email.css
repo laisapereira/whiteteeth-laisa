@@ -87,13 +87,15 @@
   gap: 1.2rem;
 }
 
-@media screen and (min-width: 320px) and (max-width: 768px) {
-  lead {
+@media screen and (min-width: 320px) and (max-width: 699px) {
+  .lead {
     flex-direction: column;
+    height: auto;
   }
 
   .lead-img {
     max-width:100%;
+    width: 40rem;
   }
 
   .lead-img-element {
@@ -130,4 +132,35 @@
     height: 3rem;
     font-size: 1rem;
   }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1250px) {
+
+  
+  
+  
+  .lead-form {
+    flex-direction: column;
+  }
+
+  .lead-email div {
+    justify-content: center;
+    width: 80%;
+  }
+
+  .lead-email h2 {
+    text-align:center;
+    line-heigh: 2rem;
+  }
+  
+  .lead-email input {
+    width: auto;
+  }
+
+  .lead-img-element {
+    width: 60%;
+  }
+
+
+
 }

@@ -1,3 +1,5 @@
+
+
 const toothProducts = [
   {
     id: 1,
@@ -117,6 +119,8 @@ const toothProducts = [
 
   },
  ]
+
+
 
 // filtro de produtos
 
@@ -248,9 +252,9 @@ var productsCart = []
 
 function addToCart (productId) {
  
-  var { img_url, name, type, price, previous_price} = toothProducts.find(product => product.id === productId)
+  var { img_url, name, type, price, previous_price, percent} = toothProducts.find(product => product.id === productId)
 
-  var summarizedProduct = {img_url, name, type, price, previous_price}
+  var summarizedProduct = {img_url, name, type, price, previous_price, percent}
 
   let positionItemInCart = productsCart.findIndex((value) => value.productId == productId);
 
@@ -339,10 +343,11 @@ function displayCart(summarizedProduct) {
                       <img src="${productSelected.img_url}">
                   </li>
                   <li> <h4>${productSelected.name}</h4> </li>
+                  <li><label class="product-previous-price"><s>${productSelected.previous_price}</s></label></li>
                   <li class="product-price"> R$ ${Number(productSelected.price * item.quantity).toFixed(2)}</li>
                   <li class="product-quantity">
                       <button class="minus"> - </button>
-                      <span>${item.quantity}</span>
+                      <span class="product-quantity">${item.quantity}</span>
                       <button class="plus"> + </button>
                   </li>
                 </ul>
@@ -372,12 +377,14 @@ function displayCart(summarizedProduct) {
 })
 
 
+
 // envio de email ao lead
 
 var buttonSubmit = document.querySelector('.lead-form-button')
 
 buttonSubmit.addEventListener('click', async function(e) {
   e.preventDefault()
+  console.log(userEmail)
   var userEmail = document.querySelector(".lead-email-input").value
 
   try {
@@ -389,10 +396,11 @@ buttonSubmit.addEventListener('click', async function(e) {
       }
     }
   )
+  
   return response.data
     
   } catch (error) {
-    console.log(error)
+    console.log("deu erro" + error)
     
   }
 

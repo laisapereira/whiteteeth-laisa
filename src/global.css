@@ -32,8 +32,11 @@
 }
 
 button:hover {
-
   cursor:pointer;
+}
+
+::webkit-scrollbar {
+  
 }
 
 @media screen and (min-width: 320px) and (max-width: 800px) {

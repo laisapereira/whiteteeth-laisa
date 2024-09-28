@@ -1,17 +1,30 @@
-const express = require('express')
-const nodemailer = require('nodemailer')
-var cors = require('cors')
+import express, { json } from 'express';
+import { createTransport } from 'nodemailer';
+import cors from 'cors';
 
-require("dotenv").config();
+import path from 'path'
+import { fileURLToPath } from 'url';
 
-const app = express()
-app.use(cors())
 
-app.use(express.json())
+import 'dotenv/config'
 
-app.get('/', (req, res) => res.send("Hello world") )
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, 'src')));
+
+
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, 'src/index.html'));
+});
 
 const user = process.env.EMAIL_USER
+
 const pass = process.env.EMAIL_PASSWORD
 
 app.post("/email", async (req, res) => {
@@ -27,7 +40,7 @@ app.post("/email", async (req, res) => {
     auth: {user, pass}
   }
 
-    const transporter = nodemailer.createTransport(config)
+    const transporter = createTransport(config)
     
     transporter.sendMail({
       from: user,  
