@@ -5,7 +5,6 @@ import cors from 'cors';
 import path from 'path'
 import { fileURLToPath } from 'url';
 
-
 import 'dotenv/config'
 
 const app = express();
@@ -18,13 +17,11 @@ const __dirname = path.dirname(__filename);
 
 app.use(express.static(path.join(__dirname, 'src')));
 
-
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, 'src/index.html'));
 });
 
 const user = process.env.EMAIL_USER
-
 const pass = process.env.EMAIL_PASSWORD
 
 app.post("/email", async (req, res) => {

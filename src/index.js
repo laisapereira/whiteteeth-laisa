@@ -167,7 +167,7 @@ function renderingErrorSection(typeButton) {
       <h3>${typeButton}</h3>
       <div class="section-line"></div>
       <h2>Ops! Parece que não temos esse tipo de produto por aqui. <br> Que tal conferir <a href="/src">outros?</a></h2>
-      <img src="./assets/images/img_not_found.svg" alt="error" />
+      <img src=".././assets/images/img_not_found.svg" alt="error" />
     </div> `
   
     document.querySelector('.section-type-products').appendChild(errorSection)
@@ -271,6 +271,7 @@ function addToCart (productId) {
   displayCart(productsCart);
   addCartToMemory();
   console.log(productsCart);
+  
 
 }
 
@@ -342,7 +343,8 @@ function displayCart(summarizedProduct) {
                   <li class="product-image">
                       <img src="${productSelected.img_url}">
                   </li>
-                  <li> <h4>${productSelected.name}</h4> </li>
+                  <li> <h3>${productSelected.name}</h3> </li>
+                  <li> <h4>${productSelected.type}</h4></li>
                   <li><label class="product-previous-price"><s>${productSelected.previous_price}</s></label></li>
                   <li class="product-price"> R$ ${Number(productSelected.price * item.quantity).toFixed(2)}</li>
                   <li class="product-quantity">
@@ -405,3 +407,20 @@ buttonSubmit.addEventListener('click', async function(e) {
   }
 
 })
+
+
+const buttonAllProducts = document.querySelector("#header-menu") 
+const menuAllProducts = document.querySelector(".header-all-products")
+
+
+buttonAllProducts.addEventListener('click', () => {
+  menuAllProducts.classList.toggle('active');
+  
+
+})
+
+
+
+
+
+

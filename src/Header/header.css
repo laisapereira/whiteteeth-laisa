@@ -3,7 +3,7 @@
 .ad-register {
   width: 100%;
   background-color: var(--main-brown-licore);
-  height: 2rem;;
+  height: 2rem;
   font-family: var(--main-font-style);
 }
 
@@ -28,11 +28,10 @@ header {
   max-width: 100%;
   height: 5.5rem;
   margin-bottom: 0rem;
- 
 }
 
 nav {
-  display:flex;
+  display: flex;
   align-items: center;
   gap: 0.4rem;
   font-family: var(--main-font-style);
@@ -41,12 +40,9 @@ nav {
 }
 
 .header-user {
-  display:flex;
+  display: flex;
   align-items: center;
   gap: 1rem;
-
-  
-
 }
 
 .button-assign {
@@ -60,11 +56,9 @@ nav {
 .button-assign button:hover {
   background-color: var(--hover-licore);
   cursor: pointer;
-
 }
 
 .header-user img:hover {
-  
   cursor: pointer;
 }
 
@@ -83,15 +77,14 @@ nav {
   cursor: pointer;
 }
 
-.header-menu {
+#header-menu {
   background-color: transparent;
   border: none;
 }
 
-.header-menu:hover {
+#header-menu:hover {
   scale: 1.1;
 }
-
 
 .container-cart {
   position: fixed;
@@ -113,6 +106,8 @@ nav {
 
   padding: 1rem;
   text-align: center;
+
+  overflow: scroll;
 }
 
 #container-blackout {
@@ -130,6 +125,48 @@ nav {
 #container-blackout.active {
   display: block;
   opacity: 1;
+}
+
+.header-all-products {
+  position: fixed;
+  top: 7rem;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-height: 0;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  padding: 0.8rem 0.9rem;
+  list-style: none;
+  transition: max-height 0.5s ease-in-out;
+  z-index: 1000;
+}
+
+.header-all-products li {
+  display: flex;
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 0.8rem;
+  padding-left: 3rem;
+  text-align: left;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  color: var(--main-brown-licore);
+}
+
+.header-all-products.active {
+  max-height: 350px;
+}
+
+.header-all-products::webkit-scrollbar {
+  display: none;
+}
+
+.nav-all-products {
+  display: flex;
+  flex-direction: column;
 }
 
 #root {
@@ -169,35 +206,15 @@ nav {
   padding: 0.8rem;
 }
 
-
-
-
-
-
-@media screen and (min-width:320px) and (max-width:800px) {
-
-  header .button-assign, {
-    display:none;
+@media screen and (min-width: 320px) and (max-width: 800px) {
+  header .button-assign {
+    display: none;
   }
 
   .header-title {
     width: 50%;
   }
+}
 
-
-
- 
- }
-
-
- @media screen and (min-width: 801px) and (max-width: 1250px) {
-
-
-
- }
- 
- 
- 
-
-
-
+@media screen and (min-width: 801px) and (max-width: 1250px) {
+}
