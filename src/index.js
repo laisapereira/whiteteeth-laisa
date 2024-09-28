@@ -360,22 +360,21 @@ function displayCart(summarizedProduct) {
   addCartToMemory()
 })
 
-var userEmail = document.querySelector('.footer-email-input').value
 var buttonSubmit = document.querySelector('.footer-form-button')
 
-const baseURL = "http://localhost:3000/email"
-
-const sendEmail = async (e, userEmail) => {
-  e.prevent.default
+buttonSubmit.addEventListener('click', async function(e) {
+  e.preventDefault()
+  var userEmail = document.querySelector(".footer-email-input").value
+  console.log(userEmail)
   
+  console.log("ain")
   try {
-    const response = await fetch(baseURL, {
+    const response = await fetch("http://localhost:3000/email", {
       method: "POST",
       body: JSON.stringify({userEmail}),
       headers: {
         "Content-Type": "application/json"
       }
-
     }
   )
   return response.data
@@ -385,9 +384,4 @@ const sendEmail = async (e, userEmail) => {
     
   }
 
-
-
-
-}
-
-buttonSubmit.addEventListener('submit', sendEmail)
+})
