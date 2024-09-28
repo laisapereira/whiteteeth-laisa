@@ -25,7 +25,6 @@
   }
 }
 
-
 .error-section a {
   color: var(--main-yellow-saffron);
 }
@@ -123,16 +122,42 @@ ul:hover .product-previous-price {
 }
 
 .container-cart {
-  display: none;
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  width: 300px;
+  max-width: 80%;
+  background-color: white;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.5s ease;
+  z-index: 1001;
 }
 
 .container-cart.active {
-  display: flex;
-  margin-left: auto;
-  width: 12rem;
-  max-width: 13rem;
+  right: 0;
+  border-radius: 0.5rem;
+  background-color: var(--main-yellow-cornsilk);
 
-  margin-left: auto;
+  padding: 1rem;
+  text-align: center;
+}
+
+#container-blackout {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  transition: opacity 1s ease;
+}
+
+#container-blackout.active {
+  display: block;
+  opacity: 1;
 }
 
 #root {
@@ -140,21 +165,11 @@ ul:hover .product-previous-price {
   flex-direction: column;
 }
 
-.cart-sidebar {
-  display: flex;
-  flex-direction: column;
-
-  border-radius: 0.3rem;
-  background-color: var(--main-yellow-cornsilk);
-
-  padding: 1rem;
-  text-align: center;
-}
-
 .cart-title {
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
-  width: 150px;
+  width: 100%;
+  max-width: 100%;
   margin-bottom: 1rem;
   background-color: var(--main-yellow-saffron);
 }
@@ -191,13 +206,13 @@ ul:hover .product-previous-price {
     padding: 1rem 1.7rem;
   }
 
-  .container-products, .error-section {
+  .container-products,
+  .error-section {
     margin-left: -1.4rem;
   }
 
   .error-section img {
     width: 26rem;
- 
   }
 
   .error-section {
@@ -215,27 +230,20 @@ ul:hover .product-previous-price {
   }
 
   .product-card {
-   
   }
-
 
   .section-line {
     width: 85%;
   }
 
   .section-type-products::webkit-scrollbar {
-    background-color:red;
+    background-color: red;
   }
-
-
- 
 }
 
-// 
-
+//
 
 @media screen and (min-width: 800px) and (max-width: 1250px) {
-
   .tooth-products {
     justify-content: center;
   }
@@ -243,13 +251,4 @@ ul:hover .product-previous-price {
   .section-line {
     width: 30vw;
   }
-
-
-
-
-
 }
-
-
-
-

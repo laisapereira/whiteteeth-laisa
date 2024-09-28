@@ -231,9 +231,18 @@ function renderFilteredCards(matchTypeCards) {
 const buttonCart = document.getElementById('header-cart-user')
 const cartContainer = document.querySelector(".container-cart")
 
+const containerBlackout = document.getElementById('container-blackout');
+
+
 buttonCart.addEventListener('click', () => {
-   cartContainer.classList.toggle('active')
-})
+  cartContainer.classList.toggle('active');
+  containerBlackout.classList.toggle('active');
+});
+
+containerBlackout.addEventListener('click', () => {
+  cartContainer.classList.remove('active');
+  containerBlackout.classList.remove('active');
+});
 
 var productsCart = []
 
@@ -325,20 +334,18 @@ function displayCart(summarizedProduct) {
           var productSelected = productsCart[positionItemInCart];
 
             newProduct.innerHTML = `
-                <div>
-                  <div class="image">
+                <ul class="product-card">
+                  <li class="product-image">
                       <img src="${productSelected.img_url}">
-                  </div>
-                  <div class="name">
-                    ${productSelected.name}
-                  </div>
-                  <div class="totalPrice"> R$ ${Number(productSelected.price * item.quantity).toFixed(2)}</div>
-                  <div class="quantity">
+                  </li>
+                  <li> <h4>${productSelected.name}</h4> </li>
+                  <li class="product-price"> R$ ${Number(productSelected.price * item.quantity).toFixed(2)}</li>
+                  <li class="product-quantity">
                       <button class="minus"> - </button>
                       <span>${item.quantity}</span>
                       <button class="plus"> + </button>
-                  </div>
-                </div>
+                  </li>
+                </ul>
             `;
 
             containerCart.appendChild(newProduct)
