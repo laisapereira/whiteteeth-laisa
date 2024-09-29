@@ -122,10 +122,11 @@ const toothProducts = [
 
 
 
+
 // filtro de produtos
 
 const filterButtons = document.querySelectorAll(".section-filter button")
-const cards = document.querySelectorAll('.product-card')
+
 
 const defaultButton = document.getElementById('filter-default')
 
@@ -142,7 +143,7 @@ function filterCards(e) {
 
  defaultButton.classList.remove('active')
  const typeButton = e.target?.value
- matchTypeCards = toothProducts.filter(product => product.type === typeButton)
+ var matchTypeCards = toothProducts.filter(product => product.type === typeButton)
  renderFilteredCards(matchTypeCards)
 
 if (typeButton === 'Todos') { 
@@ -205,7 +206,7 @@ function renderFilteredCards(matchTypeCards) {
               <li>
                 <p class="product-price"> R$ ${product.price}</p>
               </li> 
-              <button onClick="addToCart(${product.id})">Adicionar ao carrinho</button>
+              <button class="cart-add" data-id="${product.id}">Adicionar ao carrinho</button>
             </ul>`
           : `<ul class="product-card">
               <li class="no-discount"><img class="product-image" src="${product.img_url}" alt="${product.alt}" /></li>
@@ -216,7 +217,7 @@ function renderFilteredCards(matchTypeCards) {
               <li>
                 <p class="product-price">R$ ${product.price}</p>
               </li> 
-              <button onClick="addToCart(${product.id})">Adicionar ao carrinho</button>
+              <button class="cart-add" data-id="${product.id}">Adicionar ao carrinho</button>
             </ul>`
         }   
       `;
@@ -230,7 +231,6 @@ function renderFilteredCards(matchTypeCards) {
 }
 
 
-// carrinho de compras
 
 const buttonCart = document.getElementById('header-cart-user')
 const cartContainer = document.querySelector(".container-cart")
@@ -238,15 +238,29 @@ const cartContainer = document.querySelector(".container-cart")
 const containerBlackout = document.getElementById('container-blackout');
 
 
-buttonCart.addEventListener('click', () => {
+function addClass() {
   cartContainer.classList.toggle('active');
   containerBlackout.classList.toggle('active');
-});
 
-containerBlackout.addEventListener('click', () => {
+}
+buttonCart.addEventListener('click', addClass);
+
+function removeClass() {
   cartContainer.classList.remove('active');
   containerBlackout.classList.remove('active');
+}
+containerBlackout.addEventListener('click', removeClass)
+
+// carrinho de compras
+
+document.querySelectorAll('.cart-add').forEach(button => {
+  button.addEventListener('click', () => {
+    const productId = parseInt(button.dataset.id);
+    console.log(productId)
+    addToCart(productId);
+  });
 });
+
 
 var productsCart = []
 
@@ -270,8 +284,8 @@ function addToCart (productId) {
 
   displayCart(productsCart);
   addCartToMemory();
-  console.log(productsCart);
-  
+  addClass()
+
 
 }
 
@@ -370,6 +384,8 @@ function displayCart(summarizedProduct) {
   let positionClick = event.target;
   if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
       let productId = positionClick.closest('.selected-item').getAttribute('data-id')
+      console.log(productId)
+      var typeOfCount = 'plus' || 'minus'
       positionClick.classList.contains('plus') ? typeOfCount = 'plus' :typeOfCount = 'minus'
 
       changeQuantityCart(productId, typeOfCount);
@@ -386,6 +402,12 @@ var buttonSubmit = document.querySelector('.lead-form-button')
 
 buttonSubmit.addEventListener('click', async function(e) {
   e.preventDefault()
+  setTimeout(
+    Swal.fire({
+    title: "Email enviado com sucesso!",
+    text: "Confira sua caixa de entrada :)",
+    icon: "success"
+  }),2000);
   console.log(userEmail)
   var userEmail = document.querySelector(".lead-email-input").value
 
@@ -398,7 +420,7 @@ buttonSubmit.addEventListener('click', async function(e) {
       }
     }
   )
-  
+
   return response.data
     
   } catch (error) {
@@ -418,6 +440,42 @@ buttonAllProducts.addEventListener('click', () => {
   
 
 })
+
+
+// interacao com usuario sobre features futuras
+
+const assignButton = document.querySelectorAll(".button-assign")
+                             
+assignButton.forEach(button => {
+  button.addEventListener('click', () => {
+    Swal.fire({
+      title: "Em breve!",
+      text: "Estamos trabalhando para que essa feature chegue a você o mais rápido possível.",
+      icon: "info"
+    })
+  })
+})
+
+const buttonChat = document.querySelectorAll(".img-chat")
+
+buttonChat.forEach(button => {
+  button.addEventListener('click', () => {
+    Swal.fire({
+      title: "Em breve!",
+      text: "Estamos trabalhando para que essa feature chegue a você o mais rápido possível.",
+      icon: "info"
+    })
+  })
+})
+
+document.querySelector('.header-icon-user').addEventListener('click', () => {
+  Swal.fire({
+    title: "Em breve!",
+    text: "Estamos trabalhando para que essa feature chegue a você o mais rápido possível.",
+    icon: "info"
+  })
+})
+
 
 
 
