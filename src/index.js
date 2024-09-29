@@ -434,12 +434,12 @@ buttonSubmit.addEventListener('click', async function(e) {
 const buttonAllProducts = document.querySelector("#header-menu") 
 const menuAllProducts = document.querySelector(".header-all-products")
 
-
 buttonAllProducts.addEventListener('click', () => {
   menuAllProducts.classList.toggle('active');
   
-
 })
+
+
 
 
 // interacao com usuario sobre features futuras
