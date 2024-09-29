@@ -256,7 +256,7 @@ containerBlackout.addEventListener('click', removeClass)
 document.querySelectorAll('.cart-add').forEach(button => {
   button.addEventListener('click', () => {
     const productId = parseInt(button.dataset.id);
-    console.log(productId)
+ 
     addToCart(productId);
   });
 });
@@ -295,7 +295,7 @@ function changeQuantityCart (productId, typeOfCount) {
  
   if(positionItemInCart >= 0){
       var chooseProduct = productsCart[positionItemInCart];
-      console.log(chooseProduct)
+
 
          switch (typeOfCount) {
           case 'plus':
@@ -384,7 +384,7 @@ function displayCart(summarizedProduct) {
   let positionClick = event.target;
   if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
       let productId = positionClick.closest('.selected-item').getAttribute('data-id')
-      console.log(productId)
+   
       var typeOfCount = 'plus' || 'minus'
       positionClick.classList.contains('plus') ? typeOfCount = 'plus' :typeOfCount = 'minus'
 
@@ -408,7 +408,7 @@ buttonSubmit.addEventListener('click', async function(e) {
     text: "Confira sua caixa de entrada :)",
     icon: "success"
   }),2000);
-  console.log(userEmail)
+
   var userEmail = document.querySelector(".lead-email-input").value
 
   try {
