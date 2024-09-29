@@ -1,0 +1,156 @@
+@import url("../global.css");
+
+.section-filter {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--main-font-style);
+ 
+
+  padding-top: 3.5rem;
+  width: 100%;
+  max-width: 100%;
+
+}
+
+.section-filter h2 {
+  color: var(--main-yellow-saffron);
+  text-align: center;
+  font-size: var(--h2-font-size);
+  font-weight: 500;
+}
+
+.filter-choices {
+  gap: 1rem;
+  font-size: clamp(1.4rem, 1.6vw, 1.2rem);
+  padding-bottom: 0;
+  margin-top: -1rem;
+
+  width: 100%;
+  max-width: 100%;
+  
+}
+
+.img-chat {
+  width: auto;
+  height: auto;
+  max-width: 30%;
+}
+
+.buttons-filter-choices {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  p {
+    font-weight: 700;
+    font-size: clamp(1rem, 0.5vw, 1.5rem)
+  }
+
+  color: var(--main-brown-licore);
+  font-size: clamp(0.8rem, 1.5vw, 1rem);
+}
+
+.filter-option {
+  background-color: transparent;
+  border: 2px solid var(--main-brown-licore);
+  width: fit-content;
+  font-weight:700;
+
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+ .filter-option:hover {
+  background-color: var(--main-yellow-saffron);
+  cursor: pointer;
+} 
+
+
+.section-line {
+  border: 1.8px solid var(--main-brown-licore);
+  width: 88%;
+  max-width: 100%;
+  margin: 0.4rem 1.9rem;
+  margin-bottom: 2rem;
+}
+
+
+.section-title {
+  color: red;
+}
+
+.filter-option:focus{
+  background-color: var(--main-yellow-saffron);
+  cursor: pointer;
+}
+
+.active {
+  background-color: var(--main-yellow-saffron);
+  cursor: pointer;
+}
+
+@media screen and (min-width:320px) and (max-width:800px) {
+
+  .button-filter-choices {
+
+    width:100%;
+    max-width: 100%;
+  }
+
+  .button-filter-choices p {
+
+    font-size: 1.5rem;
+
+    width:100%;
+    max-width: 100%;
+  }
+
+  .filter-option {
+    width: 10.5em;
+
+  }
+
+  .bigger-choice {
+    font-size: 12px;
+    width: 11.5rem;
+  }
+
+  .filter-choices {
+    overflow:scroll;
+    padding: 1.5rem 1.5rem;
+
+  }
+
+
+  .filter-choices::-webkit-scrollbar {
+   display:none;
+  }
+
+  .section-filter {
+    padding-bottom: 1.5rem;
+  }
+
+  .section-line {
+    margin-bottom: 0.8rem;
+  }
+ }
+
+ @media screen and (min-width:800px) and (max-width:1250px) {
+
+  .buttons-filter-choices button {
+    width: 13em;
+  }
+
+  .filter-choices {
+    overflow:scroll;
+    padding: 1.5rem 1.5rem;
+
+  }
+
+  .filter-choices::-webkit-scrollbar {
+    display:none;
+   }
+ }
+
+ //hero-responsivo
+

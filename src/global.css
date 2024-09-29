@@ -1,0 +1,60 @@
+:root {
+  --main-brown-licore: #1e000e;
+  --main-yellow-saffron: #f7c325;
+  --main-yellow-cornsilk: #fdf3d3;
+  --hover-licore: #2e0619;
+
+  --hover-safron: #c7a53d;
+  --hover-cornsilk: #ebdcaa;
+
+  --main-font-style: "Roboto", sans-serif;
+  --main-condensed-font: "Roboto Condensed", sans-serif;
+  --h2-font-size: clamp(1.8rem, 3vw, 3rem);
+
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  font-family: var(--main-font-style);
+}
+
+.aligned-main-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 4rem;
+
+  width: 100%;
+  max-width: 100%;
+}
+
+button:hover {
+  cursor:pointer;
+}
+
+::webkit-scrollbar {
+  
+}
+
+@media screen and (min-width: 320px) and (max-width: 800px) {
+  .aligned-main-section {
+    padding-left: 1.5rem;
+    gap: 1rem;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1250px) {
+  .aligned-main-section {
+    padding: 1rem 3rem;
+  }
+
+}
+
+ul {
+  list-style-type: none;
+}
+
+

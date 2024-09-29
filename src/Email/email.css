@@ -1,0 +1,166 @@
+.lead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-top: 5rem;
+  height: 25rem;
+
+}
+
+.lead-img {
+
+  height: 100%;
+}
+
+.lead-img-element {
+
+  height: 100%;
+}
+.lead-email {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 75%;
+  height: 100%;
+
+  margin: 0 auto;
+
+  background-color: var(--main-yellow-cornsilk);
+}
+
+.lead-email div {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+
+  width: 60%;
+  margin: 0 auto;
+  color: var(--main-brown-licore);
+}
+
+.lead-email h2 {
+  font-weight: 500;
+
+  line-height: 2.8rem;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+
+  margin-top: 2rem;
+}
+
+.lead-form-button {
+  background-color: var(--main-yellow-saffron);
+
+  border-radius: 0.5rem;
+  border: none;
+  font-weight: 700;
+  color: var(--main-brown-licore);
+  font-size: 1.2rem;
+
+  height: 4rem;
+
+  padding: 0.8rem 1.6rem;
+}
+
+.lead-form-button:hover,
+.lead-form-button:active {
+  background-color: var(--hover-safron);
+}
+
+.lead-email-input {
+  border: 2px var(--main-brown-licore) solid;
+  border-radius: 0.5rem;
+
+  padding: 0.8rem 1rem;
+  height: 4rem;
+
+  width: 65%;
+  font-size: 1.2rem;
+  color: var(--main-brown-licore);
+  font-weight: 500;
+
+  background-color: transparent;
+}
+
+.lead-form {
+  display: flex;
+  gap: 1.2rem;
+}
+
+@media screen and (min-width: 320px) and (max-width: 699px) {
+  .lead {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .lead-img {
+    max-width:100%;
+    width: 40rem;
+  }
+
+  .lead-img-element {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .lead-email {
+    width: 100%;
+    height: auto;
+  }
+
+  .lead-email div {
+    width: 100%;
+
+    padding-top: 0.5rem;
+  }
+
+  .lead-email h2 {
+    line-height: 1.5rem;
+    font-size: 1.3rem;
+    padding: 1.5rem;
+  }
+
+  .lead-form {
+    flex-direction: column;
+  }
+
+  .lead-form-button,
+  .lead-email-input {
+    width: 90%;
+    max-width: 90%;
+    margin: 0 auto;
+    height: 3rem;
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 700px) and (max-width: 1250px) {
+
+  
+  
+  
+  .lead-form {
+    flex-direction: column;
+  }
+
+  .lead-email div {
+    justify-content: center;
+    width: 80%;
+  }
+
+  .lead-email h2 {
+    text-align:center;
+    line-heigh: 2rem;
+  }
+  
+  .lead-email input {
+    width: auto;
+  }
+
+  .lead-img-element {
+    width: 60%;
+  }
+
+
+
+}
