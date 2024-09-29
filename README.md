@@ -30,7 +30,6 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 Este é a primeira versão do desafio técnico do site WhiteTeeth, uma simulação do que seria um trecho de um site e-commerce. O projeto apresenta algumas das principais funcionalidades encontradas em e-commerces, como:
 
 - Adição e remoção de itens do carrinho de compras.
-   - 
 - Filtragem dos elementos por tipo.
 - Envio de e-mail via formulário para o lead.
 
