@@ -377,7 +377,7 @@ function displayCart(summarizedProduct) {
       
   }
      totalCart.innerText = `R$ ${totalCartValue.toFixed(2)}`
-/*   iconCartSpan.innerText = totalQuantity; */
+
 }
 
   containerCart.addEventListener('click', (event) => {
@@ -402,15 +402,14 @@ var buttonSubmit = document.querySelector('.lead-form-button')
 
 buttonSubmit.addEventListener('click', async function(e) {
   e.preventDefault()
-  setTimeout(
-    Swal.fire({
-    title: "Email enviado com sucesso!",
-    text: "Confira sua caixa de entrada :)",
-    icon: "success"
-  }),2000);
-
   var userEmail = document.querySelector(".lead-email-input").value
 
+ if (userEmail !== "") {
+  Swal.fire({
+    title: "Email enviado com sucesso!",
+    text: "Dá uma olhadinha na sua caixa de entrada ;)",
+    icon: "success"
+  })
   try {
     const response = await fetch("http://localhost:3000/email", {
       method: "POST",
@@ -427,17 +426,42 @@ buttonSubmit.addEventListener('click', async function(e) {
     console.log("deu erro" + error)
     
   }
+ } else {
+  Swal.fire({
+    title: "Ops!",
+    text: "Parece que você não digitou seu email corretamente.",
+    icon: "error"
+  })
+  return
+ }
+  
 
-})
+  
+
+    
+  })
 
 
+
+
+  // filtro pela navbar
 const buttonAllProducts = document.querySelector("#header-menu") 
 const menuAllProducts = document.querySelector(".header-all-products")
+const productButtons = document.querySelectorAll(".nav-filter li")
 
 buttonAllProducts.addEventListener('click', () => {
   menuAllProducts.classList.toggle('active');
   
 })
+
+productButtons.forEach(button => {
+  button.addEventListener('click', (e) => {
+    const productType = e?.target.value
+    console.log(productType)
+    filterCards(e)
+    menuAllProducts.classList.remove('active'); 
+  });
+});
 
 
 
